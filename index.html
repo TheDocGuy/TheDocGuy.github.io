@@ -1,10 +1,67 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Free Domain Site</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ryan Lake · TheDocGuy</title>
+  <meta name="description" content="Ryan Lake — Technical Writing Manager, Documentation Systems Architect, AI Agent Builder. Portfolio coming soon.">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0d1117;
+      color: #e6edf3;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .container { max-width: 680px; text-align: center; }
+    .badge { display: inline-block; background: #1f6feb22; border: 1px solid #1f6feb55; color: #58a6ff; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; padding: 4px 14px; border-radius: 20px; margin-bottom: 1.5rem; }
+    h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 0.5rem; }
+    h1 span { color: #58a6ff; }
+    .tagline { font-size: 1.1rem; color: #8b949e; margin-bottom: 2.5rem; line-height: 1.6; }
+    .divider { width: 48px; height: 3px; background: linear-gradient(90deg, #1f6feb, #58a6ff); border-radius: 2px; margin: 0 auto 2.5rem; }
+    .about { font-size: 0.95rem; color: #8b949e; line-height: 1.75; margin-bottom: 3rem; max-width: 520px; margin-left: auto; margin-right: auto; }
+    .about strong { color: #e6edf3; }
+    .links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 4rem; }
+    .links a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 8px; font-size: 0.875rem; font-weight: 600; text-decoration: none; transition: opacity 0.2s; }
+    .links a:hover { opacity: 0.8; }
+    .btn-primary { background: #1f6feb; color: white; }
+    .btn-secondary { background: #21262d; color: #e6edf3; border: 1px solid #30363d; }
+    .coming-soon { border: 1px solid #30363d; border-radius: 12px; padding: 2rem; margin-bottom: 3rem; }
+    .coming-soon h2 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #8b949e; margin-bottom: 1.25rem; }
+    .items { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; text-align: left; }
+    .item { background: #161b22; border: 1px solid #21262d; border-radius: 8px; padding: 1rem; }
+    .item-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #58a6ff; margin-bottom: 4px; }
+    .item-name { font-size: 0.9rem; font-weight: 600; color: #e6edf3; margin-bottom: 4px; }
+    .item-desc { font-size: 0.78rem; color: #8b949e; line-height: 1.5; }
+    footer { font-size: 0.78rem; color: #484f58; }
+    footer a { color: #58a6ff; text-decoration: none; }
+  </style>
 </head>
 <body>
-    <h1>Welcome to My GitHub Pages Site</h1>
-    <p>This is a free domain hosted on GitHub Pages! I look forward to wowing you with the evolution of this page.</p>
+  <div class="container">
+    <div class="badge">Portfolio · Coming Soon</div>
+    <h1>Ryan Lake<br><span>TheDocGuy</span></h1>
+    <p class="tagline">Technical Writing Manager · Documentation Systems Architect · AI Agent Builder</p>
+    <div class="divider"></div>
+    <p class="about">I build <strong>documentation systems that scale</strong> — not just great docs, but the infrastructure underneath them: governance, tooling, workflow automation, AI agents, and team practices that make great documentation sustainable at any release velocity.</p>
+    <div class="links">
+      <a href="https://www.linkedin.com/in/ryan-lake-b0065956/" class="btn-primary" target="_blank">LinkedIn</a>
+      <a href="https://github.com/TheDocGuy" class="btn-secondary" target="_blank">GitHub</a>
+    </div>
+    <div class="coming-soon">
+      <h2>What's being built here</h2>
+      <div class="items">
+        <div class="item"><div class="item-label">IP Framework</div><div class="item-name">Documentation Maturity Framework</div><div class="item-desc">A 5-level model for evaluating and scaling documentation functions</div></div>
+        <div class="item"><div class="item-label">IP System</div><div class="item-name">Component Style System</div><div class="item-desc">Token-based style architecture for documentation teams</div></div>
+        <div class="item"><div class="item-label">Services</div><div class="item-name">Contract Consulting</div><div class="item-desc">Documentation strategy, tooling, and automation engagements</div></div>
+        <div class="item"><div class="item-label">Community</div><div class="item-name">TW Mentorship</div><div class="item-desc">1:1 and cohort-based mentorship for technical writers</div></div>
+      </div>
+    </div>
+    <footer>Built by <a href="https://github.com/TheDocGuy">@TheDocGuy</a> · More coming soon</footer>
+  </div>
 </body>
 </html>
