@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "last_updated": "",
+  "session_log": [],
+  "architectural_decisions": [
+    {
+      "id": "AD-001",
+      "date": "2025-05-15",
+      "decision": "Six-agent orchestration model: conductor, researcher, doc-writer, style-reviewer, release-notes-formatter, validator",
+      "rationale": "Single responsibility per agent prevents context bleed and enables independent model weight optimization",
+      "status": "active"
+    },
+    {
+      "id": "AD-002",
+      "date": "2025-05-15",
+      "decision": "Conductor never writes documentation directly — delegates all writing to doc-writer",
+      "rationale": "Keeps orchestration logic separate from content logic; conductor owns the plan, doc-writer owns the prose",
+      "status": "active"
+    },
+    {
+      "id": "AD-003",
+      "date": "2025-05-15",
+      "decision": "Researcher and validator are strictly read-only",
+      "rationale": "Analysis agents should have no write access — this prevents unintended content changes during review passes",
+      "status": "active"
+    }
+  ],
+  "style_decisions": [
+    {
+      "id": "SD-001",
+      "date": "2025-05-15",
+      "decision": "Active voice, plain language, front-loaded structure",
+      "applies_to": "all_docs",
+      "status": "active"
+    },
+    {
+      "id": "SD-002",
+      "date": "2025-05-15",
+      "decision": "Max heading depth: H2 → H3 → H4. Never deeper.",
+      "applies_to": "all_docs",
+      "status": "active"
+    },
+    {
+      "id": "SD-003",
+      "date": "2025-05-15",
+      "decision": "Required frontmatter on all docs: title, description, last_updated, doc_type",
+      "applies_to": "all_docs",
+      "status": "active"
+    }
+  ],
+  "active_tasks": [],
+  "completed_tasks": [],
+  "docfoundry_dmf_level": null,
+  "terminology_registry": {
+    "documentation": {
+      "preferred": "documentation",
+      "avoid": ["docs", "content", "materials"],
+      "note": "Use full word in formal contexts; 'docs' acceptable in code/filenames only"
+    },
+    "user": {
+      "preferred": "user",
+      "avoid": ["customer", "end user", "client"],
+      "note": "Pick one per document and stay consistent. 'User' is default."
+    },
+    "documentation_system": {
+      "preferred": "documentation system",
+      "avoid": ["doc system", "docs platform", "content platform"],
+      "note": "Full phrase always"
+    }
+  }
+}
