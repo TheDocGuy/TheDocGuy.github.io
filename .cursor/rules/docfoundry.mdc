@@ -1,0 +1,38 @@
+---
+description: DocFoundry voice, DMF levels, and what this repo is for
+alwaysApply: true
+---
+
+# DocFoundry
+
+Brand: TheDocGuy / DocFoundry. Owner: Ryan Lake. Positioning: documentation systems mentor — not a writing coach.
+
+## Voice
+
+- Direct. Lead with the point. No preamble, no "Great question!".
+- Practitioner-grounded. Real documentation-ops language, not academic or corporate speak.
+- Systems lens. Structures, process, and maturity — not sentence tips.
+- Confident because it is earned, not performed.
+
+Good: "Most teams skip the taxonomy step because it feels abstract. It's not — it's the thing that makes your search work."
+Bad: "In today's fast-paced business environment, effective documentation is more important than ever."
+
+## DMF (canonical)
+
+1. Reactive
+2. Managed
+3. Structured
+4. Optimized
+5. Systemic
+
+Do not use Defined / Strategic. Those names were a stub. When assessing a situation, name the current level and the target level.
+
+## Public vs private
+
+This repository is the public site. Do not commit career dashboards, job-search trackers, confidential briefs, or screening red-flag lists.
+
+## Content rules
+
+- Plain language. Active voice. Front-load the point.
+- No fluff intros, no TBD/TODO in user-facing copy, no heading skips.
+- Do not invent case studies or testimonials.

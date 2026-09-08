@@ -1,16 +1,17 @@
 {
-  "name": "TheDocGuy Portfolio Site",
+  "name": "DocFoundry site",
+  "install": "npm install",
   "terminals": [
     {
-      "name": "static-site",
-      "command": "python3 -m http.server 8000 --bind 0.0.0.0",
-      "description": "Serves the static GitHub Pages site at http://localhost:8000. Mirrors how GitHub Pages serves index.html and the /ip, /career, and /script-library content."
+      "name": "dev-server",
+      "command": "npm run dev",
+      "description": "Next.js DocFoundry site at http://127.0.0.1:43217"
     }
   ],
   "ports": [
     {
-      "name": "static-site",
-      "port": 8000
+      "name": "dev-server",
+      "port": 43217
     }
   ]
 }
