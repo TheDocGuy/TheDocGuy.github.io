@@ -1,0 +1,16 @@
+{
+  "name": "TheDocGuy Portfolio Site",
+  "terminals": [
+    {
+      "name": "static-site",
+      "command": "python3 -m http.server 8000 --bind 0.0.0.0",
+      "description": "Serves the static GitHub Pages site at http://localhost:8000. Mirrors how GitHub Pages serves index.html and the /ip, /career, and /script-library content."
+    }
+  ],
+  "ports": [
+    {
+      "name": "static-site",
+      "port": 8000
+    }
+  ]
+}
