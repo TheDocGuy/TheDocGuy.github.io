@@ -15,10 +15,10 @@ The Documentation Maturity Framework is a 5-level model for evaluating, benchmar
 | Level | Name | Description |
 |---|---|---|
 | 1 | **Reactive** | Ad hoc documentation, no formal processes or ownership |
-| 2 | **Defined** | Basic standards exist; documentation is planned but inconsistent |
-| 3 | **Managed** | Governance, tooling, and workflows are established and followed |
+| 2 | **Managed** | Basic standards, inconsistent enforcement |
+| 3 | **Structured** | Governance defined, workflows repeatable |
 | 4 | **Optimized** | Automation, metrics, and continuous improvement are embedded |
-| 5 | **Strategic** | Documentation is a measurable driver of product adoption and business outcomes |
+| 5 | **Systemic** | Documentation as organizational infrastructure |
 
 *Full level descriptors, scoring rubric, and implementation roadmap — in progress.*
 
@@ -41,6 +41,7 @@ The Documentation Maturity Framework is a 5-level model for evaluating, benchmar
 | Version | Date | Notes |
 |---|---|---|
 | v0.1 | March 2026 | Initial stub — structure and level names established |
+| v0.1.1 | September 2026 | Canonical names: Reactive, Managed, Structured, Optimized, Systemic |
 
 ---
 

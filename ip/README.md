@@ -1,42 +1,23 @@
 # Intellectual Property — Ryan Lake
 
-This folder contains original works authored by **Ryan Lake** (@TheDocGuy).
+All original frameworks on this site are **© Ryan Lake**, all rights reserved, unless a file says otherwise.
 
----
+This includes:
 
-## ⚠️ Copyright Notice
+- The **Documentation Maturity Framework (DMF)** — name, five levels, scoring, and associated copy
+- Mentorship positioning that is published on `/mentorship`
+- The DocFoundry brand and site design
 
-All content in this repository is **© Ryan Lake, all rights reserved**, unless otherwise noted.
+The canonical level names are:
 
-This includes but is not limited to:
+1. Reactive
+2. Managed
+3. Structured
+4. Optimized
+5. Systemic
 
-- The **Documentation Maturity Framework (DMF)** — its name, structure, level descriptors, scoring rubric, and all associated documentation
-- The **Component Style System (CSS)** — its architecture, token taxonomy, naming conventions, and implementation guides
-- All frameworks, templates, curricula, methodologies, and written works contained herein
+Public v0.1. Full descriptors, rubric, and implementation roadmap are in progress. Trademark filing is planned; do not treat this notice as a registration.
 
-**No portion of this work may be reproduced, redistributed, sold, or used to train AI models without explicit written permission from Ryan Lake.**
+No portion of this work may be reproduced, resold, or used to train models without written permission.
 
----
-
-## Trademark Notice
-
-The name **"Documentation Maturity Framework"** and the abbreviation **"DMF"** are being pursued for trademark registration by Ryan Lake. Use of these marks without authorization is prohibited.
-
----
-
-## Contents
-
-| Folder | Description | Status |
-|---|---|---|
-| [`/dmf`](./dmf/) | Documentation Maturity Framework | 🔨 In progress (v0.1) |
-| [`/css-system`](./css-system/) | Component Style System | 🔨 In progress |
-
----
-
-## Contact
-
-For licensing, collaboration, or usage inquiries: [LinkedIn](https://www.linkedin.com/in/ryan-lake-b0065956/)
-
----
-
-*First committed: March 2026. All versions tracked via Git commit history to establish authorship timeline.*
+Contact: [LinkedIn](https://www.linkedin.com/in/ryan-lake-b0065956/)
