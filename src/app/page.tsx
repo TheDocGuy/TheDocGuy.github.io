@@ -31,7 +31,7 @@ export default function HomePage() {
       <section className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-16 md:grid-cols-2 md:px-12 md:py-24">
         <div>
           <p className="mb-5 inline-flex items-center gap-2 font-mono text-[0.7rem] font-medium tracking-[0.2em] text-ember-hot uppercase">
-            <span className="size-1.5 animate-pulse rounded-full bg-spark" />
+            <span className="size-1.5 rounded-full bg-spark motion-safe:animate-pulse" aria-hidden="true" />
             Documentation Maturity Framework
           </p>
           <h1 className="font-heading text-[clamp(2.6rem,5vw,4.2rem)] leading-[1.08] tracking-tight text-cream">
@@ -47,7 +47,7 @@ export default function HomePage() {
               href="/assessment"
               className={cn(
                 buttonVariants(),
-                "h-auto rounded-sm bg-ember px-6 py-3.5 text-[0.87rem] font-bold text-cream hover:bg-ember-hot",
+                "h-auto rounded-sm bg-ember-deep px-6 py-3.5 text-[0.87rem] font-bold text-cream hover:bg-ember-fill",
               )}
             >
               Assess Your Maturity →
@@ -81,7 +81,7 @@ export default function HomePage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-6 py-20 md:px-12">
-        <p className="font-mono text-[0.68rem] tracking-[0.2em] text-ember uppercase">Who it&apos;s for</p>
+        <p className="font-mono text-[0.68rem] tracking-[0.2em] text-ember-hot uppercase">Who it&apos;s for</p>
         <h2 className="mt-3 max-w-xl font-heading text-[clamp(1.8rem,3vw,2.6rem)] tracking-tight text-cream">
           Built for writers who think like <em className="text-ember-hot italic">architects</em>
         </h2>
@@ -89,7 +89,7 @@ export default function HomePage() {
           {AUDIENCES.map((audience) => (
             <article
               key={audience.title}
-              className="rounded-md border border-ember/20 bg-iron/50 p-7 transition-transform hover:-translate-y-0.5 hover:border-ember/50"
+              className="rounded-md border border-ember/20 bg-iron/50 p-7 motion-safe:transition-transform motion-safe:hover:-translate-y-0.5 hover:border-ember/50"
             >
               <h3 className="text-[0.95rem] font-bold tracking-tight text-cream">{audience.title}</h3>
               <p className="mt-3 text-[0.8rem] leading-relaxed text-ash">{audience.body}</p>
@@ -119,7 +119,7 @@ export default function HomePage() {
           href="/assessment"
           className={cn(
             buttonVariants(),
-            "mt-7 inline-flex h-auto rounded-sm bg-ember px-8 py-4 text-[0.95rem] font-bold text-cream hover:bg-ember-hot",
+            "mt-7 inline-flex h-auto rounded-sm bg-ember-deep px-8 py-4 text-[0.95rem] font-bold text-cream hover:bg-ember-fill",
           )}
         >
           Start the Assessment →

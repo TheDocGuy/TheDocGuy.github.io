@@ -24,6 +24,7 @@ const dmMono = DM_Mono({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE.url),
   title: {
     default: `${SITE.name} — Documentation Maturity Framework`,
     template: `%s · ${SITE.name}`,
@@ -44,8 +45,13 @@ export default function RootLayout({
     >
       <body className="flex min-h-full flex-col">
         <div className="relative z-10 flex min-h-full flex-1 flex-col">
+          <a href="#main-content" className="skip-link">
+            Skip to content
+          </a>
           <SiteHeader />
-          <main className="flex-1">{children}</main>
+          <main id="main-content" className="flex-1">
+            {children}
+          </main>
           <SiteFooter />
         </div>
       </body>

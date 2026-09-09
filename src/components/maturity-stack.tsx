@@ -19,10 +19,10 @@ export function MaturityStack({
 }) {
   return (
     <div className="relative overflow-hidden rounded-lg border border-ember/25 bg-iron/60 p-8 backdrop-blur-sm">
-      <p className="mb-3 font-mono text-[0.62rem] tracking-[0.14em] text-ember uppercase">
+      <p className="mb-3 font-mono text-[0.62rem] tracking-[0.14em] text-ember-hot uppercase">
         Maturity Levels
       </p>
-      <p className="absolute top-3.5 right-4 font-mono text-[0.62rem] tracking-widest text-ember/70">
+      <p className="absolute top-3.5 right-4 font-mono text-[0.62rem] tracking-widest text-ember-hot/90">
         DMF {DMF_VERSION}
       </p>
       <div className="flex flex-col gap-1.5">
@@ -34,13 +34,13 @@ export function MaturityStack({
               key={level.id}
               href="/framework"
               className={cn(
-                "flex items-center gap-3 rounded-sm border border-transparent px-3.5 py-2.5 transition-all hover:translate-x-1 hover:border-ember/40 hover:bg-ember/10",
+                "flex items-center gap-3 rounded-sm border border-transparent px-3.5 py-2.5 transition-colors hover:border-ember/40 hover:bg-ember/10 motion-safe:transition-transform motion-safe:hover:translate-x-1",
                 highlight && "border-ember/30 bg-ember/10",
               )}
             >
               <span
                 className={cn(
-                  "w-5 shrink-0 font-mono text-[0.72rem] text-ember",
+                  "w-5 shrink-0 font-mono text-[0.72rem] text-ember-hot",
                   highlight && "text-spark",
                 )}
               >

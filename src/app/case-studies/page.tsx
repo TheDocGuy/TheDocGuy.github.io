@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function CaseStudiesPage() {
   return (
     <div className="mx-auto max-w-3xl px-6 py-16 md:px-12 md:py-20">
-      <p className="font-mono text-[0.68rem] tracking-[0.2em] text-ember uppercase">Case studies</p>
+      <p className="font-mono text-[0.68rem] tracking-[0.2em] text-ember-hot uppercase">Case studies</p>
       <h1 className="mt-3 font-heading text-[clamp(2rem,4vw,3rem)] tracking-tight text-cream">
         Nothing public to ship yet.
       </h1>
@@ -29,7 +29,7 @@ export default function CaseStudiesPage() {
           href="/assessment"
           className={cn(
             buttonVariants(),
-            "h-auto rounded-sm bg-ember px-5 py-3 text-cream hover:bg-ember-hot",
+            "h-auto rounded-sm bg-ember-deep px-5 py-3 text-cream hover:bg-ember-fill",
           )}
         >
           Assess your system

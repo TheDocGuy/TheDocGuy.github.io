@@ -5,7 +5,7 @@ export function SiteFooter() {
   return (
     <footer className="relative z-10 border-t border-ember/20 px-6 py-10 text-center md:px-12">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-4">
-        <p className="font-mono text-[0.65rem] tracking-[0.12em] text-steel uppercase">
+        <p className="font-mono text-[0.65rem] tracking-[0.12em] text-ash uppercase">
           {SITE.name} · A {SITE.brand} framework · © {SITE.copyrightYear} {SITE.owner}
         </p>
         <div className="flex flex-wrap justify-center gap-5 text-xs text-ash">
@@ -20,9 +20,11 @@ export function SiteFooter() {
           </Link>
           <a href={SITE.linkedin} className="hover:text-cream" target="_blank" rel="noreferrer">
             LinkedIn
+            <span className="sr-only"> (opens in a new tab)</span>
           </a>
           <a href={SITE.github} className="hover:text-cream" target="_blank" rel="noreferrer">
             GitHub
+            <span className="sr-only"> (opens in a new tab)</span>
           </a>
         </div>
       </div>
