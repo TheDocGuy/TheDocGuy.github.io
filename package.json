@@ -8,7 +8,7 @@
     "start": "next start --port 43217 --hostname 127.0.0.1",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
-    "test": "tsx --test src/lib/assessment.test.ts src/lib/agents-wiring.test.ts src/lib/contrast.test.ts",
+    "test": "tsx --test src/lib/assessment.test.ts src/lib/agents-wiring.test.ts src/lib/contrast.test.ts src/lib/brand-assets.test.ts",
     "ci": "npm run lint && npm run typecheck && npm test && npm run build"
   },
   "dependencies": {
