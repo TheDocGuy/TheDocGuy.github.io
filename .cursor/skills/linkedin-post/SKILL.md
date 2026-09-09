@@ -20,7 +20,7 @@ Triggers:
 - "Comment-ready take on [topic]"
 - Weekly DMF / mentorship / practitioner notes
 
-Not this skill: inbox, email replies, LinkedIn DMs as conversation, or dual-channel outreach. That is `.cursor/skills/comms/SKILL.md`.
+Not this skill: replies to emails or LinkedIn DMs (draft, review, approve, send). That is `.cursor/skills/comms/SKILL.md`.
 
 ## Voice
 

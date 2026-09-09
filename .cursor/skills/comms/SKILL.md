@@ -1,112 +1,119 @@
 ---
 name: comms
-description: Manage DocFoundry communications over email (Gmail) and LinkedIn. Use when the user asks to check inbox, draft or send email, reply to a thread, follow up, handle LinkedIn DMs or comments as conversation, or run outreach across both channels. Do not use for a standalone LinkedIn post or article hook with no inbox, reply, or send path — that is linkedin-post plus Quill.
+description: Draft and send replies to inbound emails and LinkedIn DMs after Ryan reviews and approves. Use when the user asks to reply to a message, email, or DM, or to send an approved draft. Do not use for standalone LinkedIn posts, article hooks, or public comments — that is linkedin-post plus Quill.
 ---
 
-# Comms — email and LinkedIn
+# Comms — reply after review
 
-Parent-agent playbook. You orchestrate. **Quill writes.** You do not draft the email or the LinkedIn copy.
+Parent-agent playbook. **Quill writes. You send only after Ryan approves.**
 
-Voice, DMF names, and terminology come from `docs/style-guide.md`. LinkedIn post shape comes from `.cursor/skills/linkedin-post/SKILL.md`. Email shape is in this file.
+Goal: responses to inbound emails and LinkedIn direct messages. Not posts. Not cold outreach. Not an inbox CRM.
 
-You are not a writing coach. You are running documentation-systems comms for Ryan Lake / TheDocGuy.
+Voice, DMF names, and terminology come from `docs/style-guide.md`. Reply shape is in this file. LinkedIn *posts* are a different skill.
+
+## Loop (always)
+
+1. **Ingest** the inbound email or DM — pasted text, or Gmail read after tool discovery.
+2. **Draft** via Quill. You do not write the reply in the parent. If the draft is wrong, new brief to Quill — do not patch sentences.
+3. **Present for review.** Show channel, recipient, subject (email), and body. Stop. This is a draft, not a send.
+4. **Revise** if Ryan requests changes or pastes replacement copy. Show the new draft. Stop again.
+5. **Send** only when the current draft is approved. Then confirm what went out.
+
+Never skip review. "Reply to this", "draft a response", and "what would you say" are ingest + draft + present. They are not approval.
+
+### Approval
+
+Approval is explicit, for *this* draft:
+
+- "approved"
+- "looks good, send"
+- "send it" / "send this"
+- "yes, send"
+
+Not approval: "take a look", "thoughts?", "tweak the ask", "make it shorter", a new inbound paste.
+
+If Ryan edits the copy in the same message as approval, send **that** text. Do not send an older draft.
+
+If Ryan rejects or asks for changes, status goes back to draft. Do not send.
+
+### Status (say it every turn)
+
+`draft` → `in_review` → `changes_requested` → `in_review` → `approved` → `sent`
+
+Or `blocked` (auth, missing recipient, missing inbound, send error).
 
 ## When to use
 
-Triggers:
+- "Reply to this email / DM"
+- "Draft a response to…"
+- "Send the approved reply"
+- Mentorship or practitioner inbound on email or LinkedIn messaging
 
-- "Check my email" / "What's in the inbox"
-- "Reply to this thread"
-- "Draft an email to…"
-- "Send a follow-up"
-- "Handle this LinkedIn message / comment / connection note"
-- "Outreach on email and LinkedIn"
-- Mentorship inquiries arriving by mail or LinkedIn
+Not this skill:
 
-Not this skill (use `linkedin-post` + Quill only):
-
-- "Write a LinkedIn post about…"
-- "Comment-ready take on [topic]" with no person, thread, or send step
+- "Write a LinkedIn post" / article hook / public comment → `linkedin-post` + Quill
+- Building a contact list, follow-up tracker, or career dashboard in this repo
 
 ## Hard rules
 
-1. **Copy goes to Quill.** Gather channel, audience, allowed facts, and what not to invent. Launch `quill`. If the draft is wrong, send a new brief. Do not patch sentences in the parent.
-2. **Do not send without an explicit send.** "Draft", "what would you say", and "reply to this" mean show a draft. Send only on "send it", "send this", or equivalent. LinkedIn has no send API here — paste-ready only.
-3. **Do not write comms into this repository.** No inbox dumps, contact lists, follow-up trackers, screening notes, or career dashboards. Summaries stay in the chat.
-4. **Do not invent.** Recipients, quotes, metrics, client names, and employer detail must come from the user or from a message you actually read. No fake case studies.
-5. **Do not double-channel** the same person on email and LinkedIn unless asked.
-6. **Gmail MCP may need auth.** Discover tools. If the namespace is `needsAuth`, still draft; do not pretend you sent or read mail.
+1. **No send before approval.** One approved draft, one send.
+2. **Do not claim sent** unless a send tool succeeded. LinkedIn has no send MCP here — after approval, return paste-ready copy and say it is not sent.
+3. **Do not write comms into this repository.** No inbox dumps, message archives, or contact lists. The thread stays in chat.
+4. **Do not invent** recipients, quotes, or facts. Only the inbound message and Ryan's notes.
+5. **Do not BCC** a list. Do not add new To/CC names Ryan did not give you.
 
-## Channel split
+## Email (Gmail)
 
-| Channel | Read / send | Copy |
-|---|---|---|
-| **Email** | Gmail MCP after discovery | Quill, using the email shape below |
-| **LinkedIn post / public comment** | Paste-ready only | Quill + `linkedin-post` |
-| **LinkedIn DM / connection note** | Paste-ready only | Quill + the DM shape below |
+1. `GetDynamicTools` on namespace `Gmail` before any Gmail call. Use returned names and schemas.
+2. If `namespaceStatus` is `needsAuth`, tell Ryan to authenticate Gmail. Still draft and present for review. Do not claim you read or sent mail.
+3. Prefer reply-in-thread when a thread id exists, so the conversation stays one thread. Keep the subject unless Ryan changes it.
+4. Present **To**, **Subject**, **Body**. Wait for approval.
+5. On approval: send with the discovered tool. Report to, subject, and that it sent. On failure: stay `blocked`, keep the approved copy, report the error.
 
-If the task spans both channels, produce two artifacts and say which to send first.
+Do not create a Gmail draft in the mailbox unless Ryan asks for a mailbox draft instead of a send.
 
-## Gmail (email)
+## LinkedIn DMs
 
-1. Call `GetDynamicTools` on namespace `Gmail` before any Gmail call. Use the returned tool names and schemas. Do not guess.
-2. If `namespaceStatus` is `needsAuth`, tell Ryan to authenticate Gmail in Cursor. Continue with a paste-ready draft. Do not claim you searched or sent.
-3. For inbox work: search or list, then read only the threads that match the ask. Return a short summary (who, subject, ask, urgency). Do not paste full bodies into git.
-4. For a reply: pass the thread facts to Quill (from, subject, what they asked, allowed facts). Keep the same subject line unless Ryan wants it changed.
-5. After Quill returns, show **To**, **Subject**, **Body**. Wait.
-6. On explicit send: use the discovered send/draft tool. Confirm what was sent (to, subject, time). If send fails, keep the draft and report the error.
+No LinkedIn send MCP in this environment. Do not scrape. Do not claim a DM was delivered.
 
-Never auto-send. Never BCC a list from this repo. Never create labels or filters unless asked.
+1. Ingest the inbound DM (Ryan pastes it, or a future LinkedIn tool you discovered).
+2. Quill drafts. Present for review. Wait for approval.
+3. After approval: if a LinkedIn send tool exists, send then confirm. If not, return the approved paste-ready reply and say to paste it in LinkedIn. Status is `approved`, not `sent`.
 
-## LinkedIn
+If `GetDynamicTools` later shows a LinkedIn or messaging namespace, use it the same way as Gmail: discover, then send **only** after approval.
 
-No LinkedIn send MCP in this environment. Do not scrape profiles. Do not claim a post, comment, or DM was published.
+## Reply shape (for Quill)
 
-- **Post / article hook / public comment:** launch Quill; tell it to read `.cursor/skills/linkedin-post/SKILL.md`.
-- **DM / connection note:** launch Quill with the DM shape below. Short. One ask. No pitch-on-first-touch unless Ryan asked to pitch.
-- Return paste-ready text plus one risk ("Do not send if…").
+Direct, practitioner, systems. Answer first. One next step. No "I hope this finds you well." No "just circling back."
 
-## Email shape (for Quill)
+| Inbound | Shape |
+|---|---|
+| **Question / ask** | Answer, then one clarifying question or one next step |
+| **Mentorship inquiry** | Who it's for. What it is not (writing coach). Point at intake. Soft CTA |
+| **Scheduling / logistics** | Confirm the constraint. Propose one option. Easy out |
 
-Ryan's voice: direct, practitioner, systems — not corporate, not "just circling back."
+Email: 80–180 words unless Ryan asks for longer. Subject stays on-thread.
 
-| Type | Use when | Shape |
-|---|---|---|
-| **Reply** | Inbound thread | Answer first. Then one clarifying question or one next step. Quote only what you must. |
-| **Outreach** | Cold or warm intro | Why them, why now, one specific ask. No "I help companies scale content." |
-| **Follow-up** | Prior thread, no reply | One sentence of context. One ask. Offer an easy out. |
-| **Mentorship inbound** | Someone asking about working together | Who it's for. What it is not (writing coach). Point at intake. Soft CTA. |
+LinkedIn DM: 3–8 sentences. One ask. Mentorship pitch only when the thread is already about working together.
 
-Subject: specific and human. Name the artifact or decision ("Intake questions for the DMF assessment", not "Quick question" or "Following up").
+Forbidden: invented availability, fake case studies, attaching private career-ops files from this repo.
 
-Length: 80–180 words unless Ryan asks for longer. Short paragraphs. No signature block beyond the name he uses if he specified one.
+## Quill brief (required)
 
-Forbidden in email: "I hope this finds you well", "just circling back", "synergy", invented availability, attaching files from this repo that contain private career-ops.
-
-## LinkedIn DM / connection note (for Quill)
-
-Connection note: ≤200 characters when the field is the short one; otherwise 2–3 sentences. Why this person. One line of shared context. No link dump.
-
-DM: 3–8 sentences. Same voice as email. One ask. Mentorship pitch only when the thread is already about working together.
-
-## Quill brief (required fields)
-
-Pass all of these:
-
-- **Channel:** email | LinkedIn post | LinkedIn comment | LinkedIn DM
-- **Audience:** who, and what they already know
-- **Job of the message:** reply / outreach / follow-up / mentorship inbound
-- **Allowed facts:** only what was in the thread or the user's notes
+- **Channel:** email | LinkedIn DM
+- **Audience:** who, what they already asked
+- **Inbound:** the facts from the message (not a repo dump)
+- **Allowed facts**
 - **Ask:** the one next step
 - **What not to invent**
-- **Path:** none — return paste-ready copy unless a public docs path was named
+- **Path:** none — paste-ready copy
 
 ## Output to Ryan
 
-1. **Channel and action** — draft vs ready-to-send vs sent
-2. **The copy** — paste-ready, no quotes around the whole thing
-3. **Why this works** — two bullets, for Ryan
-4. **Do not send if** — one risk
-5. **Auth / tool blocker** — Gmail needsAuth, missing thread, missing recipient
+1. **Status** — `draft` / `in_review` / `changes_requested` / `approved` / `sent` / `blocked`
+2. **Channel + recipient**
+3. **The copy** — paste-ready, no quotes around the whole thing
+4. **Do not send if** — one risk, until status is `sent`
+5. **Blocker** — Gmail `needsAuth`, no LinkedIn send, missing inbound
 
-If you sent mail, say so once with to/subject. If you did not, do not imply you did.
+After a successful send: to, subject or channel, status `sent`. Once. Do not imply a send that did not happen.

@@ -21,7 +21,7 @@ Hand every user-facing prose task to the `quill` subagent at `.cursor/agents/qui
 - Site copy and UI strings
 - Markdown documentation
 - LinkedIn posts, comments, hooks, and social copy
-- Email replies, outreach, and follow-ups
+- Email and LinkedIn DM replies
 - Release notes
 - Mentorship copy
 - Content PR descriptions
@@ -32,13 +32,13 @@ If a task mixes code and copy: parent implements code; Quill owns the strings an
 
 If Quill's draft needs a correction, send a new brief back to Quill. Do not patch the sentences yourself.
 
-## Comms — email and LinkedIn
+## Comms — email and LinkedIn DMs
 
-When the user asks to check inbox, draft or send email, reply, follow up, or handle LinkedIn as a conversation (DM, comment thread, outreach) — not a standalone post — read `.cursor/skills/comms/SKILL.md`.
+When the user asks to reply to an email or LinkedIn DM, read `.cursor/skills/comms/SKILL.md`.
+
+Loop: Quill drafts → Ryan reviews and approves → then send. Do not send a draft that has not been approved. Do not commit inbox contents to this repository.
 
 Standalone LinkedIn posts still use `.cursor/skills/linkedin-post/SKILL.md`.
-
-Parent manages Gmail tools and send confirmation. Quill still writes the copy. Do not send mail unless the user explicitly says to send. Do not commit inbox contents, contact lists, or follow-up trackers to this repository.
 
 ## Research
 

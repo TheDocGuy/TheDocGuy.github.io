@@ -32,7 +32,7 @@ test("Quill, style guide, and AGENTS.md handoff are in place", () => {
   assert.match(agents, /docs\/style-guide\.md/)
 })
 
-test("comms skill covers email and LinkedIn without a second writer", () => {
+test("comms skill drafts replies and sends only after review and approval", () => {
   const comms = readFileSync(join(root, ".cursor/skills/comms/SKILL.md"), "utf8")
   const linkedin = readFileSync(join(root, ".cursor/skills/linkedin-post/SKILL.md"), "utf8")
   const agents = readFileSync(join(root, "AGENTS.md"), "utf8")
@@ -41,15 +41,15 @@ test("comms skill covers email and LinkedIn without a second writer", () => {
 
   assert.match(comms, /^name: comms$/m)
   assert.match(comms, /Gmail/)
-  assert.match(comms, /LinkedIn/)
+  assert.match(comms, /LinkedIn DM/)
   assert.match(comms, /Quill writes/)
-  assert.match(comms, /Do not send without an explicit send/)
+  assert.match(comms, /Send only when the current draft is approved/)
+  assert.match(comms, /Never skip review/)
   assert.match(comms, /Do not write comms into this repository/)
   assert.match(linkedin, /^name: linkedin-post$/m)
-  assert.match(agents, /\.cursor\/skills\/comms\/SKILL\.md/)
+  assert.match(agents, /reviews and approves/)
   assert.match(quill, /\.cursor\/skills\/comms\/SKILL\.md/)
-  assert.match(styleGuide, /### Email/)
-  assert.match(styleGuide, /\.cursor\/skills\/comms\/SKILL\.md/)
+  assert.match(styleGuide, /review-then-send/)
 })
 
 test("Copilot agent pack is gone", () => {
