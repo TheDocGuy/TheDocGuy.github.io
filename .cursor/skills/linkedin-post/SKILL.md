@@ -20,6 +20,8 @@ Triggers:
 - "Comment-ready take on [topic]"
 - Weekly DMF / mentorship / practitioner notes
 
+Not this skill: inbox, email replies, LinkedIn DMs as conversation, or dual-channel outreach. That is `.cursor/skills/comms/SKILL.md`.
+
 ## Voice
 
 - Direct. First line does work. No "I'm excited to share."

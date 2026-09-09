@@ -32,7 +32,7 @@ Pull requests run `.github/workflows/ci.yml`. A red **PR CI gate** means the cha
 
 All user-facing prose goes to the Cursor subagent at `.cursor/agents/quill.md`. The standard is `docs/style-guide.md`. Root `AGENTS.md` is the handoff.
 
-LinkedIn shape lives in `.cursor/skills/linkedin-post/SKILL.md`. Quill reads it; the parent agent does not draft the post.
+LinkedIn post shape lives in `.cursor/skills/linkedin-post/SKILL.md`. Email and LinkedIn conversation (inbox, replies, DMs, outreach) live in `.cursor/skills/comms/SKILL.md`. Quill writes the copy; the parent agent does not draft it, and does not send mail unless you say to send.
 
 ## GitHub Pages
 
@@ -41,6 +41,7 @@ After this lands on `main`, set **Settings → Pages → Source** to **GitHub Ac
 ## Also in this repo
 
 - `.cursor/agents/quill.md` — writing subagent
+- `.cursor/skills/comms/SKILL.md` — email (Gmail) and LinkedIn comms
 - `docs/style-guide.md` — canonical voice and publication rules
 - `ip/` — DMF and Component Style System stubs (copyright)
 - `script-library/` — operational scripts

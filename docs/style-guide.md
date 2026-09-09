@@ -132,6 +132,12 @@ Default to Markdown. Exactly one H1, or none if the title comes from frontmatter
 
 Read `.cursor/skills/linkedin-post/SKILL.md` for post types, length, CTAs, hashtags, and output shape. Voice and DMF names still come from this file.
 
+Standalone posts and public comments use that overlay. DMs, connection notes, and outreach that also involves email use `.cursor/skills/comms/SKILL.md`.
+
+### Email
+
+Read `.cursor/skills/comms/SKILL.md` for subject lines, reply / outreach / follow-up shape, and send rules. Voice and DMF names still come from this file. Do not invent recipients or facts. Do not put inbox contents in this repository.
+
 ### Release notes
 
 Do not invent items. Classify what you were given. Omit empty sections. If classification is uncertain, put the item in the most likely section and report it in the return note — not as a placeholder in the file.
@@ -195,7 +201,7 @@ Run this before returning. Failures block. Warnings go in the return note.
 - [ ] Internal links resolve; URLs are well-formed
 - [ ] First sentence is not fluff; headings are active voice
 
-**Site / UI / LinkedIn / paste-ready copy**
+**Site / UI / LinkedIn / email / paste-ready copy**
 
 - [ ] First line does work
 - [ ] Preferred terminology only

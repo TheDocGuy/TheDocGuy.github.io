@@ -32,6 +32,26 @@ test("Quill, style guide, and AGENTS.md handoff are in place", () => {
   assert.match(agents, /docs\/style-guide\.md/)
 })
 
+test("comms skill covers email and LinkedIn without a second writer", () => {
+  const comms = readFileSync(join(root, ".cursor/skills/comms/SKILL.md"), "utf8")
+  const linkedin = readFileSync(join(root, ".cursor/skills/linkedin-post/SKILL.md"), "utf8")
+  const agents = readFileSync(join(root, "AGENTS.md"), "utf8")
+  const quill = readFileSync(join(root, ".cursor/agents/quill.md"), "utf8")
+  const styleGuide = readFileSync(join(root, "docs/style-guide.md"), "utf8")
+
+  assert.match(comms, /^name: comms$/m)
+  assert.match(comms, /Gmail/)
+  assert.match(comms, /LinkedIn/)
+  assert.match(comms, /Quill writes/)
+  assert.match(comms, /Do not send without an explicit send/)
+  assert.match(comms, /Do not write comms into this repository/)
+  assert.match(linkedin, /^name: linkedin-post$/m)
+  assert.match(agents, /\.cursor\/skills\/comms\/SKILL\.md/)
+  assert.match(quill, /\.cursor\/skills\/comms\/SKILL\.md/)
+  assert.match(styleGuide, /### Email/)
+  assert.match(styleGuide, /\.cursor\/skills\/comms\/SKILL\.md/)
+})
+
 test("Copilot agent pack is gone", () => {
   for (const relative of COPILOT_GONE) {
     assert.equal(existsSync(join(root, relative)), false, `${relative} should not exist`)
