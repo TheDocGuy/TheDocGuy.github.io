@@ -130,13 +130,11 @@ Default to Markdown. Exactly one H1, or none if the title comes from frontmatter
 
 ### LinkedIn
 
-Read `.cursor/skills/linkedin-post/SKILL.md` for post types, length, CTAs, hashtags, and output shape. Voice and DMF names still come from this file.
-
-Standalone posts and public comments use that overlay. Replies to LinkedIn DMs use `.cursor/skills/comms/SKILL.md`.
+Voice and DMF names still come from this style guide. Post types, length, CTAs, hashtags, and output shape live in the private repo `TheDocGuy/docfoundry-skills`, skill `linkedin-post`.
 
 ### Email
 
-Read `.cursor/skills/comms/SKILL.md` for reply shape and the review-then-send loop. Voice and DMF names still come from this file. Do not invent recipients or facts. Do not put inbox contents in this repository. Send only after the draft is approved.
+Replies to email and LinkedIn DMs use the `comms` skill in that same private repo. Send only after Ryan reviews and approves. Do not invent recipients or facts. Do not put inbox contents in the public site repo.
 
 ### Release notes
 
@@ -201,7 +199,7 @@ Run this before returning. Failures block. Warnings go in the return note.
 - [ ] Internal links resolve; URLs are well-formed
 - [ ] First sentence is not fluff; headings are active voice
 
-**Site / UI / LinkedIn / email / paste-ready copy**
+**Site / UI / LinkedIn / paste-ready copy**
 
 - [ ] First line does work
 - [ ] Preferred terminology only

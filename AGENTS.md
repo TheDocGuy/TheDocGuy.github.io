@@ -10,7 +10,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 # Agent routing — DocFoundry
 
-Parent agent orchestrates. **Quill writes.** `docs/style-guide.md` is the standard.
+Parent agent orchestrates. **Quill writes.** Quill stays at `.cursor/agents/quill.md`. `docs/style-guide.md` stays here and is the standard.
 
 The Next.js block above is managed by `next dev`. Do not edit it. Keep this routing section after `<!-- END:nextjs-agent-rules -->`.
 
@@ -32,13 +32,19 @@ If a task mixes code and copy: parent implements code; Quill owns the strings an
 
 If Quill's draft needs a correction, send a new brief back to Quill. Do not patch the sentences yourself.
 
-## Comms — email and LinkedIn DMs
+## Skills live in the private repo
 
-When the user asks to reply to an email or LinkedIn DM, read `.cursor/skills/comms/SKILL.md`.
+Cursor skills live only in `TheDocGuy/docfoundry-skills`. That repo is private. This public site must not contain Cursor skill files.
 
-Loop: Quill drafts → Ryan reviews and approves → then send. Do not send a draft that has not been approved. Do not commit inbox contents to this repository.
+When the private repo is in the workspace, read skills from `TheDocGuy/docfoundry-skills` at:
 
-Standalone LinkedIn posts still use `.cursor/skills/linkedin-post/SKILL.md`.
+- `.cursor/skills/comms/SKILL.md` — inbound email and LinkedIn DM replies. Loop: Quill drafts → Ryan reviews and approves → then send. Do not send a draft that has not been approved. "Reply to this" is not approval.
+- `.cursor/skills/linkedin-post/SKILL.md` — standalone LinkedIn posts, comments, hooks
+- `.cursor/skills/slide-deck/SKILL.md` — HTML slide decks
+
+Point at those files. Do not paste skill bodies, playbook steps, send procedures, or post templates into this repo.
+
+If the private repo is not in the workspace, still do not draft those artifacts in the parent, and still do not recreate skill files here.
 
 ## Research
 
@@ -46,4 +52,4 @@ Use the built-in Explore subagent for codebase scans. Then give Quill a scoped b
 
 ## What this repo is not for
 
-Career dashboards, job-search trackers, confidential briefs, and screening lists stay out. Do not invent case studies or testimonials.
+Career dashboards, job-search trackers, confidential briefs, and screening lists stay out. Do not invent case studies or testimonials. Do not commit inbox contents, contact lists, or career dashboards to this repository.

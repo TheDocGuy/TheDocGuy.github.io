@@ -32,25 +32,23 @@ test("Quill, style guide, and AGENTS.md handoff are in place", () => {
   assert.match(agents, /docs\/style-guide\.md/)
 })
 
-test("comms skill drafts replies and sends only after review and approval", () => {
-  const comms = readFileSync(join(root, ".cursor/skills/comms/SKILL.md"), "utf8")
-  const linkedin = readFileSync(join(root, ".cursor/skills/linkedin-post/SKILL.md"), "utf8")
+test("Cursor skills are not in this public repo", () => {
   const agents = readFileSync(join(root, "AGENTS.md"), "utf8")
+  const readme = readFileSync(join(root, "README.md"), "utf8")
   const quill = readFileSync(join(root, ".cursor/agents/quill.md"), "utf8")
   const styleGuide = readFileSync(join(root, "docs/style-guide.md"), "utf8")
 
-  assert.match(comms, /^name: comms$/m)
-  assert.match(comms, /Gmail/)
-  assert.match(comms, /LinkedIn DM/)
-  assert.match(comms, /Quill writes/)
-  assert.match(comms, /only when the current draft is approved/)
-  assert.match(comms, /No send before approval/)
-  assert.match(comms, /Never skip review/)
-  assert.match(comms, /Do not write comms into this repository/)
-  assert.match(linkedin, /^name: linkedin-post$/m)
+  assert.equal(existsSync(join(root, ".cursor/skills")), false)
+  assert.equal(existsSync(join(root, ".cursor/skills/comms/SKILL.md")), false)
+  assert.equal(existsSync(join(root, ".cursor/skills/linkedin-post/SKILL.md")), false)
+  assert.equal(existsSync(join(root, ".cursor/skills/slide-deck/SKILL.md")), false)
+
+  assert.match(agents, /TheDocGuy\/docfoundry-skills/)
   assert.match(agents, /reviews and approves/)
-  assert.match(quill, /\.cursor\/skills\/comms\/SKILL\.md/)
-  assert.match(styleGuide, /review-then-send/)
+  assert.match(agents, /must not contain Cursor skill files/)
+  assert.match(readme, /TheDocGuy\/docfoundry-skills/)
+  assert.match(quill, /TheDocGuy\/docfoundry-skills/)
+  assert.match(styleGuide, /TheDocGuy\/docfoundry-skills/)
 })
 
 test("Copilot agent pack is gone", () => {

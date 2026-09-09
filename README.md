@@ -32,7 +32,7 @@ Pull requests run `.github/workflows/ci.yml`. A red **PR CI gate** means the cha
 
 All user-facing prose goes to the Cursor subagent at `.cursor/agents/quill.md`. The standard is `docs/style-guide.md`. Root `AGENTS.md` is the handoff.
 
-LinkedIn post shape lives in `.cursor/skills/linkedin-post/SKILL.md`. Replies to email and LinkedIn DMs live in `.cursor/skills/comms/SKILL.md`. Quill drafts; send happens only after you review and approve.
+Cursor skills do not live in this repo. They live only in the private repo `TheDocGuy/docfoundry-skills`: comms (email and LinkedIn DM replies — send only after Ryan reviews and approves), linkedin-post, and slide-deck.
 
 ## GitHub Pages
 
@@ -41,7 +41,6 @@ After this lands on `main`, set **Settings → Pages → Source** to **GitHub Ac
 ## Also in this repo
 
 - `.cursor/agents/quill.md` — writing subagent
-- `.cursor/skills/comms/SKILL.md` — email and LinkedIn DM replies (review, then send)
 - `docs/style-guide.md` — canonical voice and publication rules
 - `ip/` — DMF and Component Style System stubs (copyright)
 - `script-library/` — operational scripts
