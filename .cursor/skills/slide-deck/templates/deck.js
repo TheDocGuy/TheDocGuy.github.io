@@ -2,6 +2,11 @@
   const slides = [...document.querySelectorAll("[data-slide]")];
   if (slides.length === 0) return;
 
+  const deck = document.querySelector(".deck");
+  const square = deck?.getAttribute("data-aspect") === "1:1";
+  const slideW = square ? 1080 : 1920;
+  const slideH = 1080;
+
   const progress = document.querySelector("[data-progress]");
   let index = 0;
 
@@ -15,8 +20,8 @@
   }
 
   function scale() {
-    const sx = window.innerWidth / 1920;
-    const sy = window.innerHeight / 1080;
+    const sx = window.innerWidth / slideW;
+    const sy = window.innerHeight / slideH;
     document.documentElement.style.setProperty("--slide-scale", String(Math.min(sx, sy)));
   }
 

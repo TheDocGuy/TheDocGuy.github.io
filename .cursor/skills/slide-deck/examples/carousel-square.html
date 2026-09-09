@@ -3,20 +3,18 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>DocFoundry deck</title>
+    <title>DocFoundry — LinkedIn carousel</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="slides.css" />
+    <link rel="stylesheet" href="../templates/slides.css" />
   </head>
   <body>
-    <main class="deck" data-deck-type="framework">
-      <!-- Carousel: add data-aspect="1:1" and data-deck-type="carousel". -->
-      <!-- Duplicate this <section> for each slide. Swap slide--* to the layout in layouts.md. -->
-      <section class="slide slide--title is-active" data-slide>
+    <main class="deck" data-deck-type="carousel" data-aspect="1:1">
+      <section class="slide slide--claim is-active" data-slide>
         <header class="slide__chrome">
           <div class="brand">
             <img src="../assets/logo.svg" alt="" />
@@ -25,15 +23,12 @@
           <p class="version">DMF v0.1</p>
         </header>
         <div class="slide__body">
-          <p class="eyebrow"><span class="pulse"></span>Documentation Maturity Framework</p>
-          <h1>Slide title goes here — one line, one job.</h1>
-          <p class="owner">Ryan Lake · DocFoundry</p>
+          <p class="claim">If the style guide is optional, you are not <em>Structured</em>.</p>
         </div>
         <footer class="slide__footer">
-          <span>Ryan Lake · DocFoundry · The Doc Guy</span>
+          <span>Ryan Lake · DocFoundry</span>
           <span data-counter></span>
         </footer>
-        <aside class="notes">What Ryan says on this slide. 20–40 seconds. Not a restatement of the headline.</aside>
       </section>
 
       <section class="slide slide--claim" data-slide>
@@ -45,10 +40,27 @@
           <p class="version">DMF v0.1</p>
         </header>
         <div class="slide__body">
-          <p class="claim">Replace this with the sentence they should <em>remember</em>.</p>
+          <p class="claim">You are <em>Managed</em>: the artifact is there. The path is not.</p>
         </div>
         <footer class="slide__footer">
-          <span>Ryan Lake · DocFoundry · The Doc Guy</span>
+          <span>Ryan Lake · DocFoundry</span>
+          <span data-counter></span>
+        </footer>
+      </section>
+
+      <section class="slide slide--claim" data-slide>
+        <header class="slide__chrome">
+          <div class="brand">
+            <img src="../assets/logo.svg" alt="" />
+            <span>Doc<span class="brand__foundry">Foundry</span></span>
+          </div>
+          <p class="version">DMF v0.1</p>
+        </header>
+        <div class="slide__body">
+          <p class="claim">Structured is the default path — including the week the calendar is on <em>fire</em>.</p>
+        </div>
+        <footer class="slide__footer">
+          <span>Ryan Lake · DocFoundry</span>
           <span data-counter></span>
         </footer>
       </section>
@@ -62,17 +74,17 @@
           <p class="version">DMF v0.1</p>
         </header>
         <div class="slide__body">
-          <h2>One CTA. Site language.</h2>
+          <h2>Assess the system you have.</h2>
           <a class="cta" href="https://thedocguy.github.io/assessment">Assess Your Maturity →</a>
           <p class="cta-url">thedocguy.github.io/assessment</p>
         </div>
         <footer class="slide__footer">
-          <span>Ryan Lake · DocFoundry · The Doc Guy</span>
+          <span>Ryan Lake · DocFoundry</span>
           <span data-counter></span>
         </footer>
       </section>
     </main>
     <p class="progress" data-progress></p>
-    <script src="deck.js"></script>
+    <script src="../templates/deck.js"></script>
   </body>
 </html>

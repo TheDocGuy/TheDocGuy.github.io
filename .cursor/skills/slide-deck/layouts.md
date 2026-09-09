@@ -2,7 +2,7 @@
 
 Pick a named layout per slide. Do not freehand a new composition.
 
-Default canvas: **16:9** (`1920×1080`). **1:1** only for the Carousel deck type.
+Default canvas: **16:9** (`1920×1080`). **1:1** only for the Carousel deck type — set `data-aspect="1:1"` on `.deck` so CSS and `deck.js` scale to 1080×1080.
 
 Density: one idea per slide. Title ≤ 8 words. Body ≤ 40 words unless it is a level card. Bullets ≤ 4. Speaker notes carry the story.
 

@@ -52,7 +52,7 @@ On Framework, Talk, and Readout decks: name the current level and the target lev
 2. Confirm tokens have not drifted (`src/app/globals.css`, `src/components/logo.tsx`).
 3. Outline: layout name + one-line job per slide. Tighten before filling copy.
 4. Write on-slide copy, then speaker notes (20–40 seconds per slide).
-5. Build from `templates/deck.html`. Do not freehand CSS.
+5. Build from `templates/deck.html`. Do not freehand CSS. Carousel decks must set `data-aspect="1:1"` on `.deck` (1080×1080). Leave 16:9 for every other type.
 6. Return the four artifacts below.
 
 Do not commit readout decks with employer-specific evidence. Generate them locally.
