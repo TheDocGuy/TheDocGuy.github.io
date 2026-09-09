@@ -24,9 +24,18 @@ Dev server: [http://127.0.0.1:43217](http://127.0.0.1:43217)
 | `npm run typecheck` | `tsc --noEmit` |
 | `npm test` | DMF, assessment, and agent-wiring unit tests |
 | `npm run build` | Production build |
-| `npm run ci` | Lint, typecheck, test, build — the PR gate |
+| `npm run gitflow` | Git delivery policy checks |
+| `npm run ci` | Lint, typecheck, test, build, and `gitflow` — the PR gate |
 
 Pull requests run `.github/workflows/ci.yml`. A red **PR CI gate** means the change does not merge.
+
+## Delivery
+
+Feature branches target the protected `dev` branch. Required checks run before merge.
+
+After changes merge, `.github/workflows/dev-preview.yml` uploads the integrated development build. Promotion uses a pull request from `dev` to `main`. Production GitHub Pages deploys only from `main`.
+
+`git-good` owns all Git and pull request mutations.
 
 ## Writing (Quill)
 
