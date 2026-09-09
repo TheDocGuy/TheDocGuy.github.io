@@ -7,3 +7,34 @@ This version has breaking changes — APIs, conventions, and file structure may 
 This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
 <!-- END:nextjs-agent-rules -->
+
+# Agent routing — DocFoundry
+
+Parent agent orchestrates. **Quill writes.** `docs/style-guide.md` is the standard.
+
+The Next.js block above is managed by `next dev`. Do not edit it. Keep this routing section after `<!-- END:nextjs-agent-rules -->`.
+
+## Writing — mandatory handoff
+
+Hand every user-facing prose task to the `quill` subagent at `.cursor/agents/quill.md`. That includes:
+
+- Site copy and UI strings
+- Markdown documentation
+- LinkedIn posts, comments, hooks, and social copy
+- Release notes
+- Mentorship copy
+- Content PR descriptions
+
+Do not draft, rewrite, or "just fix" that prose in the parent. Gather audience, channel, paths, and allowed facts, then launch Quill (`/quill` or Task `subagent_type: quill`).
+
+If a task mixes code and copy: parent implements code; Quill owns the strings and markdown.
+
+If Quill's draft needs a correction, send a new brief back to Quill. Do not patch the sentences yourself.
+
+## Research
+
+Use the built-in Explore subagent for codebase scans. Then give Quill a scoped brief. Do not recreate a separate researcher or style-reviewer agent.
+
+## What this repo is not for
+
+Career dashboards, job-search trackers, confidential briefs, and screening lists stay out. Do not invent case studies or testimonials.
