@@ -32,6 +32,23 @@ test("Quill, style guide, and AGENTS.md handoff are in place", () => {
   assert.match(agents, /docs\/style-guide\.md/)
 })
 
+test("git-good policy version 1 routing is in place", () => {
+  const gitGood = readFileSync(join(root, ".cursor/agents/git-good.md"), "utf8")
+  const gitRule = readFileSync(join(root, ".cursor/rules/git-good.mdc"), "utf8")
+  const agents = readFileSync(join(root, "AGENTS.md"), "utf8")
+  const prTemplate = readFileSync(join(root, ".github/PULL_REQUEST_TEMPLATE.md"), "utf8")
+
+  assert.match(gitGood, /^name: git-good$/m)
+  assert.match(gitGood, /^policy-version: 1$/m)
+  assert.match(gitGood, /docfoundry-skills\/\.cursor\/skills\/git-good\/SKILL\.md/)
+  assert.match(gitRule, /^alwaysApply: true$/m)
+  assert.match(gitRule, /Policy version: 1/)
+  assert.match(agents, /Parent orchestrates\. Quill writes\. git-good ships\./)
+  assert.match(agents, /feature branches target `dev`/)
+  assert.match(prTemplate, /`dev` → `main` promotion/)
+  assert.match(prTemplate, /Integrated `dev` checks/)
+})
+
 test("Cursor skills are not in this public repo", () => {
   const agents = readFileSync(join(root, "AGENTS.md"), "utf8")
   const readme = readFileSync(join(root, "README.md"), "utf8")

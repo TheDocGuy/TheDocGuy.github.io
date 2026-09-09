@@ -1,0 +1,21 @@
+---
+description: Routes every Git and pull request mutation through the canonical git-good workflow.
+alwaysApply: true
+---
+
+# Git and pull request policy
+
+Policy version: 1
+
+Only `git-good` may perform mutating Git or pull request operations. Parent agents and all other agents are read-only and may use only `git status`, `git log`, `git diff`, and `git show`.
+
+Route every mutation through `.cursor/agents/git-good.md`, which must follow the canonical private skill at `/agent/repos/docfoundry-skills/.cursor/skills/git-good/SKILL.md`.
+
+- Create feature work from `dev` and merge it into `dev`.
+- Test features before integration, then test the integrated candidate on `dev`.
+- Promote releases from `dev` to `main`.
+- Deploy production only from `main`.
+- Use a hotfix only with explicit authorization, target `main`, and sync the merged hotfix back to `dev`.
+- Never merge without an explicit user instruction to merge.
+
+One-time bootstrap exception: the parent agent may create the installation commit that introduces `git-good`. After that commit, only `git-good` may mutate Git or pull requests.
