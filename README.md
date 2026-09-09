@@ -22,15 +22,17 @@ Dev server: [http://127.0.0.1:43217](http://127.0.0.1:43217)
 | `npm run dev` | Next.js on port 43217 |
 | `npm run lint` | ESLint |
 | `npm run typecheck` | `tsc --noEmit` |
-| `npm test` | DMF + assessment unit tests |
+| `npm test` | DMF, assessment, and agent-wiring unit tests |
 | `npm run build` | Production build |
 | `npm run ci` | Lint, typecheck, test, build — the PR gate |
 
 Pull requests run `.github/workflows/ci.yml`. A red **PR CI gate** means the change does not merge.
 
-## LinkedIn skill
+## Writing (Quill)
 
-Cursor skill at `.cursor/skills/linkedin-post/SKILL.md`. Ask for a LinkedIn post and it drafts in TheDocGuy voice against the DMF.
+All user-facing prose goes to the Cursor subagent at `.cursor/agents/quill.md`. The standard is `docs/style-guide.md`. Root `AGENTS.md` is the handoff.
+
+LinkedIn shape lives in `.cursor/skills/linkedin-post/SKILL.md`. Quill reads it; the parent agent does not draft the post.
 
 ## GitHub Pages
 
@@ -38,7 +40,8 @@ After this lands on `main`, set **Settings → Pages → Source** to **GitHub Ac
 
 ## Also in this repo
 
-- `.github/agents/` — DocFoundry Copilot agent pack
+- `.cursor/agents/quill.md` — writing subagent
+- `docs/style-guide.md` — canonical voice and publication rules
 - `ip/` — DMF and Component Style System stubs (copyright)
 - `script-library/` — operational scripts
 - `career/` — public notes only; job-search ops stay private

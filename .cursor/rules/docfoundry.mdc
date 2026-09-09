@@ -1,21 +1,11 @@
 ---
-description: DocFoundry voice, DMF levels, and what this repo is for
+description: DocFoundry brand, DMF levels, public vs private. Writing goes to Quill.
 alwaysApply: true
 ---
 
 # DocFoundry
 
 Brand: TheDocGuy / DocFoundry. Owner: Ryan Lake. Positioning: documentation systems mentor — not a writing coach.
-
-## Voice
-
-- Direct. Lead with the point. No preamble, no "Great question!".
-- Practitioner-grounded. Real documentation-ops language, not academic or corporate speak.
-- Systems lens. Structures, process, and maturity — not sentence tips.
-- Confident because it is earned, not performed.
-
-Good: "Most teams skip the taxonomy step because it feels abstract. It's not — it's the thing that makes your search work."
-Bad: "In today's fast-paced business environment, effective documentation is more important than ever."
 
 ## DMF (canonical)
 
@@ -31,8 +21,6 @@ Do not use Defined / Strategic. Those names were a stub. When assessing a situat
 
 This repository is the public site. Do not commit career dashboards, job-search trackers, confidential briefs, or screening red-flag lists.
 
-## Content rules
+## Writing
 
-- Plain language. Active voice. Front-load the point.
-- No fluff intros, no TBD/TODO in user-facing copy, no heading skips.
-- Do not invent case studies or testimonials.
+All user-facing prose goes to the `quill` subagent. Standard: `docs/style-guide.md`. Do not draft that prose in the parent agent.
