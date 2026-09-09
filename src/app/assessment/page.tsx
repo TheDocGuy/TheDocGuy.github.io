@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function AssessmentPage() {
   return (
     <div className="mx-auto max-w-3xl px-6 py-16 md:px-12 md:py-20">
-      <p className="font-mono text-[0.68rem] tracking-[0.2em] text-ember uppercase">
+      <p className="font-mono text-[0.68rem] tracking-[0.2em] text-ember-hot uppercase">
         Free assessment
       </p>
       <h1 className="mt-3 font-heading text-[clamp(2rem,4vw,3rem)] tracking-tight text-cream">

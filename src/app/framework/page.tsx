@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function FrameworkPage() {
   return (
     <div className="mx-auto max-w-6xl px-6 py-16 md:px-12 md:py-20">
-      <p className="font-mono text-[0.68rem] tracking-[0.2em] text-ember uppercase">
+      <p className="font-mono text-[0.68rem] tracking-[0.2em] text-ember-hot uppercase">
         DMF {DMF_VERSION}
       </p>
       <h1 className="mt-3 max-w-3xl font-heading text-[clamp(2.2rem,4vw,3.4rem)] tracking-tight text-cream">
@@ -30,7 +30,7 @@ export default function FrameworkPage() {
           href="/assessment"
           className={cn(
             buttonVariants(),
-            "h-auto rounded-sm bg-ember px-5 py-3 text-cream hover:bg-ember-hot",
+            "h-auto rounded-sm bg-ember-deep px-5 py-3 text-cream hover:bg-ember-fill",
           )}
         >
           Run the assessment
@@ -53,7 +53,7 @@ export default function FrameworkPage() {
             id={`level-${level.id}`}
             className="rounded-lg border border-ember/20 bg-iron/40 p-6 md:p-8"
           >
-            <p className="font-mono text-[0.68rem] text-ember">
+            <p className="font-mono text-[0.68rem] text-ember-hot">
               {level.code} · Level {level.id}
             </p>
             <h2 className="mt-2 font-heading text-3xl text-cream">{level.name}</h2>
@@ -67,7 +67,7 @@ export default function FrameworkPage() {
               ))}
             </ul>
             <p className="mt-5 text-sm leading-relaxed text-parchment">
-              <span className="font-mono text-[0.68rem] tracking-wider text-ember uppercase">
+              <span className="font-mono text-[0.68rem] tracking-wider text-ember-hot uppercase">
                 Next move{" "}
               </span>
               {level.nextMove}

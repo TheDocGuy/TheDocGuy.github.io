@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function MentorshipPage() {
   return (
     <div className="mx-auto max-w-6xl px-6 py-16 md:px-12 md:py-20">
-      <p className="font-mono text-[0.68rem] tracking-[0.2em] text-ember uppercase">Mentorship</p>
+      <p className="font-mono text-[0.68rem] tracking-[0.2em] text-ember-hot uppercase">Mentorship</p>
       <h1 className="mt-3 max-w-3xl font-heading text-[clamp(2.2rem,4vw,3.4rem)] tracking-tight text-cream">
         Not a writing coach. A documentation systems mentor.
       </h1>
@@ -24,7 +24,7 @@ export default function MentorshipPage() {
             id={track.id}
             className="flex flex-col rounded-lg border border-ember/20 bg-iron/40 p-6"
           >
-            <p className="font-mono text-[0.68rem] tracking-wider text-ember uppercase">
+            <p className="font-mono text-[0.68rem] tracking-wider text-ember-hot uppercase">
               {track.audience}
             </p>
             <h2 className="mt-2 font-heading text-2xl text-cream">{track.name}</h2>

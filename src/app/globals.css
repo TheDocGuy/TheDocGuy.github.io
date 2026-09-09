@@ -13,9 +13,11 @@
   --color-forge: #1a0f00;
   --color-ember: #c45c0a;
   --color-ember-hot: #f07020;
+  --color-ember-deep: #984209;
+  --color-ember-fill: #a84909;
   --color-iron: #2e2016;
   --color-steel: #4a3828;
-  --color-ash: #8a7060;
+  --color-ash: #b4a092;
   --color-cream: #f5ede0;
   --color-parchment: #ede0cc;
   --color-spark: #ffb340;
@@ -64,12 +66,12 @@
   --card-foreground: #f5ede0;
   --popover: #2e2016;
   --popover-foreground: #f5ede0;
-  --primary: #c45c0a;
+  --primary: #984209;
   --primary-foreground: #f5ede0;
   --secondary: #4a3828;
   --secondary-foreground: #f5ede0;
   --muted: #2e2016;
-  --muted-foreground: #8a7060;
+  --muted-foreground: #b4a092;
   --accent: #4a3828;
   --accent-foreground: #f5ede0;
   --destructive: #dc2626;
@@ -84,7 +86,7 @@
   --radius: 0.25rem;
   --sidebar: #2e2016;
   --sidebar-foreground: #f5ede0;
-  --sidebar-primary: #c45c0a;
+  --sidebar-primary: #984209;
   --sidebar-primary-foreground: #f5ede0;
   --sidebar-accent: #4a3828;
   --sidebar-accent-foreground: #f5ede0;
@@ -101,6 +103,44 @@
   }
   body {
     @apply bg-forge text-cream;
+  }
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid var(--color-ember-hot);
+    outline-offset: 2px;
+  }
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  z-index: 60;
+  transform: translateY(-200%);
+  border-radius: 0.25rem;
+  background: var(--color-ember-deep);
+  padding: 0.5rem 0.85rem;
+  color: var(--color-cream);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
