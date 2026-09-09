@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DocFoundry — Documentation Maturity Framework</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../templates/slides.css" />
+  </head>
+  <body>
+    <main class="deck" data-deck-type="framework">
+      <section class="slide slide--title is-active" data-slide>
+        <header class="slide__chrome">
+          <div class="brand">
+            <img src="../assets/logo.svg" alt="" />
+            <span>Doc<span class="brand__foundry">Foundry</span></span>
+          </div>
+          <p class="version">DMF v0.1</p>
+        </header>
+        <div class="slide__body">
+          <p class="eyebrow"><span class="pulse"></span>Documentation Maturity Framework</p>
+          <h1>Five levels. One honest read on how your docs actually operate.</h1>
+          <p class="owner">Ryan Lake · DocFoundry</p>
+        </div>
+        <footer class="slide__footer">
+          <span>Ryan Lake · DocFoundry · The Doc Guy</span>
+          <span data-counter></span>
+        </footer>
+        <aside class="notes">
+          Open with the job of the framework: a shared language with leadership, not a score to perform for.
+        </aside>
+      </section>
+
+      <section class="slide slide--claim" data-slide>
+        <header class="slide__chrome">
+          <div class="brand">
+            <img src="../assets/logo.svg" alt="" />
+            <span>Doc<span class="brand__foundry">Foundry</span></span>
+          </div>
+          <p class="version">DMF v0.1</p>
+        </header>
+        <div class="slide__body">
+          <p class="claim">Most documentation problems aren’t <em>writing</em> problems. They’re <em>systems</em> problems.</p>
+        </div>
+        <footer class="slide__footer">
+          <span>Ryan Lake · DocFoundry · The Doc Guy</span>
+          <span data-counter></span>
+        </footer>
+        <aside class="notes">
+          If they remember one line, this is it. The talented writer is not the bottleneck. The path work takes is.
+        </aside>
+      </section>
+
+      <section class="slide slide--stack" data-slide>
+        <header class="slide__chrome">
+          <div class="brand">
+            <img src="../assets/logo.svg" alt="" />
+            <span>Doc<span class="brand__foundry">Foundry</span></span>
+          </div>
+          <p class="version">DMF v0.1</p>
+        </header>
+        <div class="slide__body">
+          <p class="eyebrow">Maturity levels</p>
+          <h2>Name the system you have.</h2>
+          <ol class="stack">
+            <li class="stack__row" data-level="1">
+              <span class="stack__code">01</span>
+              <div>
+                <div class="stack__name">Reactive</div>
+                <div class="stack__short">Ad-hoc, undocumented, writer-dependent</div>
+              </div>
+              <div class="stack__bar" aria-hidden="true"></div>
+            </li>
+            <li class="stack__row" data-level="2">
+              <span class="stack__code">02</span>
+              <div>
+                <div class="stack__name">Managed</div>
+                <div class="stack__short">Basic standards, inconsistent enforcement</div>
+              </div>
+              <div class="stack__bar" aria-hidden="true"></div>
+            </li>
+            <li class="stack__row" data-level="3">
+              <span class="stack__code">03</span>
+              <div>
+                <div class="stack__name">Structured</div>
+                <div class="stack__short">Governance defined, workflows repeatable</div>
+              </div>
+              <div class="stack__bar" aria-hidden="true"></div>
+            </li>
+            <li class="stack__row" data-level="4">
+              <span class="stack__code">04</span>
+              <div>
+                <div class="stack__name">Optimized</div>
+                <div class="stack__short">Automated, metrics-driven, scalable</div>
+              </div>
+              <div class="stack__bar" aria-hidden="true"></div>
+            </li>
+            <li class="stack__row" data-level="5">
+              <span class="stack__code">05</span>
+              <div>
+                <div class="stack__name">Systemic</div>
+                <div class="stack__short">Documentation as organizational infrastructure</div>
+              </div>
+              <div class="stack__bar" aria-hidden="true"></div>
+            </li>
+          </ol>
+        </div>
+        <footer class="slide__footer">
+          <span>Ryan Lake · DocFoundry · The Doc Guy</span>
+          <span data-counter></span>
+        </footer>
+        <aside class="notes">
+          Walk the names only. Do not lecture all five. Tell them the useful jump for most teams is Managed to Structured.
+        </aside>
+      </section>
+
+      <section class="slide slide--level" data-slide>
+        <header class="slide__chrome">
+          <div class="brand">
+            <img src="../assets/logo.svg" alt="" />
+            <span>Doc<span class="brand__foundry">Foundry</span></span>
+          </div>
+          <p class="version">DMF v0.1</p>
+        </header>
+        <div class="slide__body">
+          <p class="level-code">02 · Level 2</p>
+          <h2>Managed</h2>
+          <p class="level-short">Basic standards, inconsistent enforcement</p>
+          <p class="level-summary">
+            Someone owns documentation and a few standards exist. The team still depends on heroics. Reviews, tooling, and intake are uneven across products.
+          </p>
+          <ul class="signals">
+            <li>A style guide exists but is not used in every review</li>
+            <li>Some products have coverage; others do not</li>
+            <li>Work is tracked, but intake is still informal</li>
+          </ul>
+          <p class="next-move">
+            <span class="label">Next move</span>
+            Make the standard the default path: templates, a required review, and one source of truth. That is Structured.
+          </p>
+        </div>
+        <footer class="slide__footer">
+          <span>Ryan Lake · DocFoundry · The Doc Guy</span>
+          <span data-counter></span>
+        </footer>
+        <aside class="notes">
+          This is where most “we have a style guide” teams actually live. The artifact is there. The path is optional.
+        </aside>
+      </section>
+
+      <section class="slide slide--level" data-slide>
+        <header class="slide__chrome">
+          <div class="brand">
+            <img src="../assets/logo.svg" alt="" />
+            <span>Doc<span class="brand__foundry">Foundry</span></span>
+          </div>
+          <p class="version">DMF v0.1</p>
+        </header>
+        <div class="slide__body">
+          <p class="level-code">03 · Level 3</p>
+          <h2>Structured</h2>
+          <p class="level-short">Governance defined, workflows repeatable</p>
+          <p class="level-summary">
+            Governance is written down. Writers follow the same intake, draft, review, and publish path. The operation is repeatable even when the calendar is not quiet.
+          </p>
+          <ul class="signals">
+            <li>Templates and a review workflow are in daily use</li>
+            <li>Tooling is chosen and shared across the team</li>
+            <li>New writers can be onboarded without shadowing one person</li>
+          </ul>
+          <p class="next-move">
+            <span class="label">Next move</span>
+            Instrument the workflow. Measure cycle time, coverage, and review load, then automate the handoffs. That is Optimized.
+          </p>
+        </div>
+        <footer class="slide__footer">
+          <span>Ryan Lake · DocFoundry · The Doc Guy</span>
+          <span data-counter></span>
+        </footer>
+        <aside class="notes">
+          Structured is the default path, including the week the calendar is on fire. That is the distinction this talk is for.
+        </aside>
+      </section>
+
+      <section class="slide slide--contrast" data-slide>
+        <header class="slide__chrome">
+          <div class="brand">
+            <img src="../assets/logo.svg" alt="" />
+            <span>Doc<span class="brand__foundry">Foundry</span></span>
+          </div>
+          <p class="version">DMF v0.1</p>
+        </header>
+        <div class="slide__body">
+          <p class="eyebrow">The distinction</p>
+          <h2>The artifact is not the path.</h2>
+          <div class="contrast">
+            <div class="contrast__col">
+              <h3>Looks like a writing problem</h3>
+              <ul>
+                <li>The draft is late</li>
+                <li>SME review slips</li>
+                <li>The help center contradicts itself</li>
+              </ul>
+            </div>
+            <div class="contrast__col contrast__col--system">
+              <h3>The system underneath</h3>
+              <ul>
+                <li>Nobody created the work item</li>
+                <li>“Review” means whenever someone has a minute</li>
+                <li>Four sources of truth and no owner</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <footer class="slide__footer">
+          <span>Ryan Lake · DocFoundry · The Doc Guy</span>
+          <span data-counter></span>
+        </footer>
+        <aside class="notes">
+          Pair each symptom with the missing system. Do not offer sentence-level advice on this slide.
+        </aside>
+      </section>
+
+      <section class="slide slide--path" data-slide>
+        <header class="slide__chrome">
+          <div class="brand">
+            <img src="../assets/logo.svg" alt="" />
+            <span>Doc<span class="brand__foundry">Foundry</span></span>
+          </div>
+          <p class="version">DMF v0.1</p>
+        </header>
+        <div class="slide__body">
+          <p class="eyebrow">The jump that matters</p>
+          <h2>Managed to Structured.</h2>
+          <div class="path">
+            <div class="path__node">
+              <div class="path__kicker">You are here</div>
+              <div class="path__name">Managed</div>
+            </div>
+            <div class="path__arrow" aria-hidden="true">→</div>
+            <div class="path__node" data-target>
+              <div class="path__kicker">You need</div>
+              <div class="path__name">Structured</div>
+            </div>
+          </div>
+          <p class="path-move">
+            <span class="label">The move</span>
+            Make the standard the default path: templates, a required review, and one source of truth.
+          </p>
+        </div>
+        <footer class="slide__footer">
+          <span>Ryan Lake · DocFoundry · The Doc Guy</span>
+          <span data-counter></span>
+        </footer>
+        <aside class="notes">
+          Do not skip to Optimized. Teams try to automate a path that is still optional. Name the move, then stop.
+        </aside>
+      </section>
+
+      <section class="slide slide--stats" data-slide>
+        <header class="slide__chrome">
+          <div class="brand">
+            <img src="../assets/logo.svg" alt="" />
+            <span>Doc<span class="brand__foundry">Foundry</span></span>
+          </div>
+          <p class="version">DMF v0.1</p>
+        </header>
+        <div class="slide__body">
+          <p class="eyebrow">Built by a practitioner</p>
+          <h2>The framework is not a thought experiment.</h2>
+          <div class="stats">
+            <div class="stat">
+              <div class="stat__value">8+</div>
+              <p class="stat__label">Years building documentation systems</p>
+            </div>
+            <div class="stat">
+              <div class="stat__value">500+</div>
+              <p class="stat__label">Automated work items delivered via DocFoundry methods</p>
+            </div>
+            <div class="stat">
+              <div class="stat__value">9+</div>
+              <p class="stat__label">Enterprise products under one unified doc system</p>
+            </div>
+            <div class="stat">
+              <div class="stat__value">≤10</div>
+              <p class="stat__label">Business days draft to publication, every sprint</p>
+            </div>
+          </div>
+        </div>
+        <footer class="slide__footer">
+          <span>Ryan Lake · DocFoundry · The Doc Guy</span>
+          <span data-counter></span>
+        </footer>
+        <aside class="notes">
+          These are homepage figures. Do not add employer names. If a number is challenged, point at the site and move on.
+        </aside>
+      </section>
+
+      <section class="slide slide--trio" data-slide>
+        <header class="slide__chrome">
+          <div class="brand">
+            <img src="../assets/logo.svg" alt="" />
+            <span>Doc<span class="brand__foundry">Foundry</span></span>
+          </div>
+          <p class="version">DMF v0.1</p>
+        </header>
+        <div class="slide__body">
+          <p class="eyebrow">Who it’s for</p>
+          <h2>Writers who think like <em>architects</em>.</h2>
+          <div class="trio">
+            <article class="card">
+              <h3>The lone writer</h3>
+              <p>No governance, no process, no style guide. You need vocabulary leadership will fund.</p>
+            </article>
+            <article class="card">
+              <h3>The aspiring manager</h3>
+              <p>You can write. Now you need the tools managers actually use to run the system.</p>
+            </article>
+            <article class="card">
+              <h3>The team at scale</h3>
+              <p>Headcount is growing. Infrastructure is not. You need an audit, a roadmap, and governance you can run.</p>
+            </article>
+          </div>
+        </div>
+        <footer class="slide__footer">
+          <span>Ryan Lake · DocFoundry · The Doc Guy</span>
+          <span data-counter></span>
+        </footer>
+        <aside class="notes">
+          Pick the row that matches the room. Skip the other two out loud if the audience is homogeneous.
+        </aside>
+      </section>
+
+      <section class="slide slide--close" data-slide>
+        <header class="slide__chrome">
+          <div class="brand">
+            <img src="../assets/logo.svg" alt="" />
+            <span>Doc<span class="brand__foundry">Foundry</span></span>
+          </div>
+          <p class="version">DMF v0.1</p>
+        </header>
+        <div class="slide__body">
+          <h2>Assess the system you have, not the one on the slide.</h2>
+          <a class="cta" href="https://thedocguy.github.io/assessment">Assess Your Maturity →</a>
+          <p class="cta-url">thedocguy.github.io/assessment</p>
+        </div>
+        <footer class="slide__footer">
+          <span>Ryan Lake · DocFoundry · The Doc Guy</span>
+          <span data-counter></span>
+        </footer>
+        <aside class="notes">
+          Ten questions. Instant level. Leave the URL up. Mentorship only if someone asks.
+        </aside>
+      </section>
+    </main>
+    <p class="progress" data-progress></p>
+    <script src="../templates/deck.js"></script>
+  </body>
+</html>
