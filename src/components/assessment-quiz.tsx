@@ -1,8 +1,9 @@
 "use client"
 
 import Link from "next/link"
-import { useMemo, useState } from "react"
+import { useEffect, useId, useMemo, useRef, useState } from "react"
 import { Button, buttonVariants } from "@/components/ui/button"
+import { A11Y_COPY } from "@/lib/a11y-copy"
 import {
   ASSESSMENT_QUESTIONS,
   isCompleteAssessment,
@@ -20,6 +21,11 @@ export function AssessmentQuiz() {
   const [index, setIndex] = useState(0)
   const [status, setStatus] = useState<Status>("idle")
   const [error, setError] = useState<string | null>(null)
+  const [focusTick, setFocusTick] = useState(0)
+  const headingRef = useRef<HTMLHeadingElement>(null)
+  const errorRef = useRef<HTMLParagraphElement>(null)
+  const headingId = useId()
+  const errorId = useId()
 
   const question = ASSESSMENT_QUESTIONS[index]
   const answeredCount = answers.filter((answer) => answer !== null).length
@@ -31,6 +37,15 @@ export function AssessmentQuiz() {
       return null
     }
   }, [answers, status])
+
+  useEffect(() => {
+    if (focusTick === 0) return
+    if (status === "error") {
+      errorRef.current?.focus()
+      return
+    }
+    headingRef.current?.focus()
+  }, [focusTick, status])
 
   function selectOption(level: number) {
     setError(null)
@@ -46,12 +61,14 @@ export function AssessmentQuiz() {
     if (answers[index] === null) {
       setError("Pick the option that is true most of the time — not the one you wish were true.")
       setStatus("error")
+      setFocusTick((value) => value + 1)
       return
     }
     setError(null)
     if (index < ASSESSMENT_QUESTIONS.length - 1) {
       setIndex((value) => value + 1)
       setStatus("in-progress")
+      setFocusTick((value) => value + 1)
       return
     }
     if (!isCompleteAssessment(answers)) {
@@ -59,15 +76,18 @@ export function AssessmentQuiz() {
       setIndex(firstMissing === -1 ? 0 : firstMissing)
       setError("Every question needs an answer before we can score the system.")
       setStatus("error")
+      setFocusTick((value) => value + 1)
       return
     }
     setStatus("result")
+    setFocusTick((value) => value + 1)
   }
 
   function goBack() {
     setError(null)
     setStatus("in-progress")
     setIndex((value) => Math.max(0, value - 1))
+    setFocusTick((value) => value + 1)
   }
 
   function reset() {
@@ -75,17 +95,22 @@ export function AssessmentQuiz() {
     setIndex(0)
     setStatus("idle")
     setError(null)
+    setFocusTick((value) => value + 1)
   }
 
   if (status === "result" && result) {
     return (
-      <div className="rounded-lg border border-ember/25 bg-iron/50 p-6 md:p-10">
-        <p className="font-mono text-[0.68rem] tracking-[0.18em] text-ember uppercase">
+      <div className="rounded-lg border border-ember/25 bg-iron/50 p-6 md:p-10" role="status">
+        <p className="font-mono text-[0.68rem] tracking-[0.18em] text-ember-hot uppercase">
           Assessment result
         </p>
-        <p className="mt-3 font-heading text-4xl tracking-tight text-cream">
+        <h2
+          ref={headingRef}
+          tabIndex={-1}
+          className="mt-3 font-heading text-4xl tracking-tight text-cream outline-none"
+        >
           Level {result.level.code} · {result.level.name}
-        </p>
+        </h2>
         <p className="mt-2 font-mono text-xs text-ash">
           Average score {result.average} / 5 across {ASSESSMENT_QUESTIONS.length} questions
         </p>
@@ -120,7 +145,7 @@ export function AssessmentQuiz() {
             href="/framework"
             className={cn(
               buttonVariants(),
-              "h-auto rounded-sm bg-ember px-5 py-3 text-cream hover:bg-ember-hot",
+              "h-auto rounded-sm bg-ember-fill px-5 py-3 text-cream hover:bg-ember-fill-hover",
             )}
           >
             Read the framework
@@ -150,13 +175,20 @@ export function AssessmentQuiz() {
   return (
     <div className="rounded-lg border border-ember/25 bg-iron/50 p-6 md:p-10">
       <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
-        <p className="font-mono text-[0.68rem] tracking-[0.18em] text-ember uppercase">
+        <p className="font-mono text-[0.68rem] tracking-[0.18em] text-ember-hot uppercase">
           Question {index + 1} of {ASSESSMENT_QUESTIONS.length}
         </p>
         <p className="text-xs text-ash">{answeredCount} answered</p>
       </div>
 
-      <div className="mb-6 h-1 overflow-hidden rounded-full bg-forge">
+      <div
+        className="mb-6 h-1 overflow-hidden rounded-full bg-forge"
+        role="progressbar"
+        aria-label={A11Y_COPY.assessmentProgress}
+        aria-valuemin={0}
+        aria-valuemax={ASSESSMENT_QUESTIONS.length}
+        aria-valuenow={answeredCount}
+      >
         <div
           className="h-full bg-ember-hot transition-[width]"
           style={{ width: `${(answeredCount / ASSESSMENT_QUESTIONS.length) * 100}%` }}
@@ -170,12 +202,21 @@ export function AssessmentQuiz() {
         </p>
       ) : null}
 
-      <h2 className="font-heading text-2xl tracking-tight text-cream md:text-3xl">
+      <h2
+        ref={headingRef}
+        id={headingId}
+        tabIndex={-1}
+        className="font-heading text-2xl tracking-tight text-cream outline-none md:text-3xl"
+      >
         {question.prompt}
       </h2>
       <p className="mt-2 text-sm text-ash">{question.help}</p>
 
-      <fieldset className="mt-8 grid gap-2" aria-label={question.prompt}>
+      <fieldset
+        className="mt-8 grid gap-2"
+        aria-labelledby={headingId}
+        aria-describedby={status === "error" && error ? errorId : undefined}
+      >
         {question.options.map((option) => {
           const selected = answers[index] === option.level
           return (
@@ -183,6 +224,7 @@ export function AssessmentQuiz() {
               key={option.level}
               className={cn(
                 "flex cursor-pointer items-start gap-3 rounded-sm border px-4 py-3 text-sm leading-relaxed transition-colors",
+                "has-focus-visible:ring-2 has-focus-visible:ring-ember-hot has-focus-visible:ring-offset-2 has-focus-visible:ring-offset-forge",
                 selected
                   ? "border-ember bg-ember/15 text-cream"
                   : "border-ember/20 text-ash hover:border-ember/40 hover:text-cream",
@@ -197,7 +239,7 @@ export function AssessmentQuiz() {
                 onChange={() => selectOption(option.level)}
               />
               <span>
-                <span className="mr-2 font-mono text-[0.68rem] text-ember">L{option.level}</span>
+                <span className="mr-2 font-mono text-[0.68rem] text-ember-hot">L{option.level}</span>
                 {option.label}
               </span>
             </label>
@@ -206,7 +248,13 @@ export function AssessmentQuiz() {
       </fieldset>
 
       {error ? (
-        <p className="mt-4 rounded-sm border border-destructive/40 bg-destructive/10 px-3 py-2 text-sm text-cream" role="alert">
+        <p
+          id={errorId}
+          ref={errorRef}
+          tabIndex={-1}
+          className="mt-4 rounded-sm border border-destructive/40 bg-destructive/10 px-3 py-2 text-sm text-cream outline-none"
+          role="alert"
+        >
           {error}
         </p>
       ) : null}
@@ -223,7 +271,7 @@ export function AssessmentQuiz() {
         </Button>
         <Button
           type="button"
-          className="h-auto rounded-sm bg-ember px-5 py-3 text-cream hover:bg-ember-hot"
+          className="h-auto rounded-sm bg-ember-fill px-5 py-3 text-cream hover:bg-ember-fill-hover"
           onClick={goNext}
         >
           {index === ASSESSMENT_QUESTIONS.length - 1 ? "See my level" : "Next question"}

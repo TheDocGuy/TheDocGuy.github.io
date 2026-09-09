@@ -13,9 +13,11 @@
   --color-forge: #1a0f00;
   --color-ember: #c45c0a;
   --color-ember-hot: #f07020;
+  --color-ember-fill: #8f3c08;
+  --color-ember-fill-hover: #a34609;
   --color-iron: #2e2016;
   --color-steel: #4a3828;
-  --color-ash: #8a7060;
+  --color-ash: #a48b7a;
   --color-cream: #f5ede0;
   --color-parchment: #ede0cc;
   --color-spark: #ffb340;
@@ -69,7 +71,7 @@
   --secondary: #4a3828;
   --secondary-foreground: #f5ede0;
   --muted: #2e2016;
-  --muted-foreground: #8a7060;
+  --muted-foreground: #a48b7a;
   --accent: #4a3828;
   --accent-foreground: #f5ede0;
   --destructive: #dc2626;
@@ -130,4 +132,19 @@ body::after {
   pointer-events: none;
   z-index: 0;
   opacity: 0.6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
