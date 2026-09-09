@@ -1,6 +1,7 @@
 ---
 description: Routes every Git and pull request mutation through the canonical git-good workflow.
 alwaysApply: true
+policyVersion: 1
 ---
 
 # Git and pull request policy

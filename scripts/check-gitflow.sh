@@ -20,7 +20,7 @@ done
 
 grep -Fq "Parent orchestrates. Quill writes. git-good ships." AGENTS.md
 grep -Eq '^policy-version: 1$' .cursor/agents/git-good.md
-grep -Fq "Policy version: 1" .cursor/rules/git-good.mdc
+grep -Eq '^policyVersion: 1$' .cursor/rules/git-good.mdc
 grep -Fq "alwaysApply: true" .cursor/rules/git-good.mdc
 
 if [[ "${GITHUB_EVENT_NAME:-}" == "pull_request" ]]; then

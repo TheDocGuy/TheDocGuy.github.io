@@ -42,7 +42,7 @@ test("git-good policy version 1 routing is in place", () => {
   assert.match(gitGood, /^policy-version: 1$/m)
   assert.match(gitGood, /docfoundry-skills\/\.cursor\/skills\/git-good\/SKILL\.md/)
   assert.match(gitRule, /^alwaysApply: true$/m)
-  assert.match(gitRule, /Policy version: 1/)
+  assert.match(gitRule, /^policyVersion: 1$/m)
   assert.match(agents, /Parent orchestrates\. Quill writes\. git-good ships\./)
   assert.match(agents, /feature branches target `dev`/)
   assert.match(prTemplate, /`dev` → `main` promotion/)
