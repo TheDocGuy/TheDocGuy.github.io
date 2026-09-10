@@ -13,28 +13,22 @@ jobs:
   gate:
     name: PR CI gate
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 5
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-
-      - name: Install
-        run: npm ci
-
-      - name: Lint
-        run: npm run lint
-
-      - name: Typecheck
-        run: npm run typecheck
-
-      - name: Unit tests
-        run: npm test
-
-      - name: Production build
-        run: npm run build
+      - uses: actions/checkout@v4
+      - name: Mirror hygiene
+        run: |
+          set -euo pipefail
+          test -f index.html
+          test -f MIRROR_SOURCE.txt
+          test -f .nojekyll
+          # Fail if authoring source leaked back in
+          if [[ -d src || -f package.json || -d apps ]]; then
+            echo "Authoring source must not exist in the public mirror" >&2
+            exit 1
+          fi
+          if [[ -d career-ops || -d .cursor/skills ]]; then
+            echo "Confidential paths must not exist in the public mirror" >&2
+            exit 1
+          fi
+          echo "Mirror hygiene OK"
