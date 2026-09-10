@@ -25,11 +25,17 @@ test("Quill, style guide, and AGENTS.md handoff are in place", () => {
 
   assert.match(styleGuide, /Reactive → Managed → Structured → Optimized → Systemic|1 \| Reactive/)
   assert.match(styleGuide, /documentation system/)
+  assert.match(styleGuide, /DocFoundry Style Guide/)
+  assert.match(styleGuide, /spaces\/MFS\/pages\/819202/)
+  assert.match(styleGuide, /public mirror/i)
   assert.match(quill, /^name: quill$/m)
   assert.match(quill, /docs\/style-guide\.md/)
+  assert.match(quill, /spaces\/MFS\/pages\/819202/)
+  assert.match(quill, /source of truth/i)
   assert.match(agents, /<!-- END:nextjs-agent-rules -->/)
   assert.match(agents, /subagent_type: quill/)
   assert.match(agents, /docs\/style-guide\.md/)
+  assert.match(agents, /source of truth/)
 })
 
 test("Cursor skills are not in this public repo", () => {
