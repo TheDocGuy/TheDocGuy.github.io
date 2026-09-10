@@ -14,6 +14,16 @@ Parent agent orchestrates. **Quill writes.** Quill stays at `.cursor/agents/quil
 
 The Next.js block above is managed by `next dev`. Do not edit it. Keep this routing section after `<!-- END:nextjs-agent-rules -->`.
 
+## Git — mandatory handoff
+
+Policy version: 1.
+
+The parent and every agent except `git-good` may run only read-only Git operations: status, log, diff, and show. Hand all branch creation, staging, commits, pushes, and pull request creation, updates, or promotion to `git-good` at `.cursor/agents/git-good.md`. `git-good` reads the canonical skill from the private repository and requires a Jira `KAN-*` key.
+
+Use the `main` flow: feature branches start from `origin/main` as `cursor/KAN-<n>-…`, run checks, then open a pull request into `main`. Pull requests are required only into `main`. Never promote `dev` to `main`. Keep optional `dev` current by syncing from `main` after releases. Use a hotfix path only when the user authorizes it. Do not merge a GitHub pull request unless the user explicitly instructs you to merge. Done for shippable work means acceptance criteria met and, when applicable, a pull request into `main` exists.
+
+Bootstrap exception: for this installation only, the parent may perform the minimum Git and pull request mutations needed to create the installation commit, push it, and open the bootstrap pull request because `git-good` did not exist. After that, no exception applies.
+
 ## Writing — mandatory handoff
 
 Hand every user-facing prose task to the `quill` subagent at `.cursor/agents/quill.md`. That includes:

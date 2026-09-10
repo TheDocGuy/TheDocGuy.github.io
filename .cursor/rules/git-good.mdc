@@ -1,0 +1,17 @@
+---
+description: Routes Git and pull request mutations through git-good. Pull requests are required only into `main`.
+alwaysApply: true
+policyVersion: 1
+---
+
+# Git and pull request routing
+
+Only `git-good` may mutate Git or pull requests. Other agents may use only `git status`, `git log`, `git diff`, and `git show`.
+
+Route mutations through `.cursor/agents/git-good.md` and the canonical skill at `/agent/repos/docfoundry-skills/.cursor/skills/git-good/SKILL.md`.
+
+Require a Jira `KAN-*` key. Prefer `cursor/KAN-<n>-<descriptive-name>-<run-id>` branches. Feature work branches from `main`, then opens a pull request into `main`. Pull requests are required only into `main`. Never promote `dev` to `main`. Sync merged hotfixes back to `dev` by merge/push without a sync pull request. Hand status updates to `work-manager`. Do not let `git-good` mutate Jira or Confluence.
+
+Never merge a GitHub pull request without an explicit user instruction.
+
+Bootstrap exception: the parent may create the installation commit for `git-good` only when `git-good` does not yet exist.
