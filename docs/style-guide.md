@@ -1,13 +1,23 @@
 ---
 title: DocFoundry style guide
-description: Canonical voice, terminology, and publication rules for every user-facing sentence in this repository.
-last_updated: 2026-09-09
+description: Public mirror of DocFoundry voice, terminology, and publication rules. Canonical authority is the Confluence DocFoundry Style Guide in space MFS once published.
+last_updated: 2026-09-10
 doc_type: reference
 ---
 
 # DocFoundry style guide
 
-This file is the standard. Quill reads it before writing. Parent agents do not draft user-facing prose.
+## Source of truth
+
+**Canonical:** Confluence page **DocFoundry Style Guide** in space **MFS** (under the MFS homepage). That page is DocFoundry’s source of truth for style rules — the delta versus Microsoft plus DocFoundry-specific rules. URL: fill when the page is published.
+
+**Parent standard:** [Microsoft Writing Style Guide](https://learn.microsoft.com/en-us/style-guide/welcome/). Follow Microsoft unless DocFoundry overrides or extends it.
+
+**This file:** Published mirror and operator pointer in the public repo. It must stay in sync with the Confluence page. It is public-safe only.
+
+**Until Confluence exists:** This file remains the interim authority. Quill reads it before writing.
+
+**When Confluence exists:** Quill reads the Confluence **DocFoundry Style Guide** as the DocFoundry authority for drafting — especially MFS / restricted-space work, and generally for DocFoundry prose. Parent agents do not draft user-facing prose.
 
 ## Brand
 
@@ -130,7 +140,7 @@ Default to Markdown. Exactly one H1, or none if the title comes from frontmatter
 
 ### LinkedIn
 
-Voice and DMF names still come from this style guide. Post types, length, CTAs, hashtags, and output shape live in the private repo `TheDocGuy/docfoundry-skills`, skill `linkedin-post`.
+Voice and DMF names come from the DocFoundry Style Guide source of truth (Confluence when published; this file until then). Post types, length, CTAs, hashtags, and output shape live in the private repo `TheDocGuy/docfoundry-skills`, skill `linkedin-post`.
 
 ### Email
 
@@ -138,7 +148,7 @@ Replies to email and LinkedIn DMs use the `comms` skill in that same private rep
 
 ### Release notes
 
-Do not invent items. Classify what you were given. Omit empty sections. If classification is uncertain, put the item in the most likely section and report it in the return note — not as a placeholder in the file.
+Do not invent items. Classify what you were given. Omit empty sections. If classification is uncertain, put the item in the most likely section and report it in the return note — not as a placeholder in the file. Identify fixed issues with Jira keys (`KAN-123`), not GitHub issue numbers.
 
 ```markdown
 ---
@@ -158,7 +168,7 @@ doc_type: 'release-notes'
 
 ## Bug Fixes
 
-- **[Bug/issue ID or short name]**: [One-line description.]
+- **KAN-123**: [One-line description.]
 
 ## Known Issues
 

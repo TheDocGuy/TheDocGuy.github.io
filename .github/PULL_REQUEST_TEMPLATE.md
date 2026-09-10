@@ -1,3 +1,9 @@
+## Jira
+
+- Key: KAN-
+- Acceptance criteria:
+- Linked work:
+
 ## CI gate
 
 This pull request cannot merge on a red `PR CI gate`.
@@ -38,6 +44,11 @@ If you change DMF level names, update `src/lib/dmf.ts` **and** `src/lib/assessme
 ## Public/private safety
 
 - [ ] I confirmed this PR contains no career dashboards, job-search trackers, confidential briefs, screening lists, secrets, or other private material.
+
+## work-manager handoff
+
+- Requested Jira status after this PR:
+- Evidence summary:
 
 ## Promotion checklist
 
