@@ -1,20 +1,48 @@
-## CI gate
+## Jira
 
-This pull request cannot merge on a red `PR CI gate`.
-
-The workflow runs, in order:
-
-1. `npm run lint`
-2. `npm run typecheck`
-3. `npm test` — includes the canonical DMF level-name lock
-4. `npm run build`
-
-If you change DMF level names, update `src/lib/dmf.ts` **and** `src/lib/assessment.test.ts` in the same PR.
+- Key: KAN-
+- Acceptance criteria:
+- Linked work:
 
 ## Summary
 
+<!-- State what changed and why. Quill owns content-facing prose. -->
+
+## Change type
+
+- [ ] Feature into `main` (feature branch from `origin/main`)
+- [ ] Authorized hotfix into `main`
+
+## Policy note
+
+Pull requests target `main` only. Feature branches start from `origin/main`. Never promote `dev` to `main`. Only feature branches and authorized hotfixes merge into `main`.
+
+## Linked PRs
+
+<!-- Link related feature or hotfix PRs. -->
+
+## Test evidence
+
+### Feature checks
+
 -
 
-## Test plan
+### Release checks (this PR into `main`)
 
 -
+
+## work-manager handoff
+
+- Requested Jira status after this PR:
+- Evidence summary:
+
+## Checklist
+
+- [ ] The source and target branches match the selected change type
+- [ ] Required test evidence is attached
+- [ ] The PR contains only approved changes
+- [ ] This PR does not promote `dev` to `main`
+
+## Public/private safety
+
+- [ ] I confirmed this PR contains no career dashboards, job-search trackers, confidential briefs, screening lists, secrets, or other private material.
