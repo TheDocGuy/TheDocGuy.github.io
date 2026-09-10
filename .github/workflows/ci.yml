@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  gate:
+    name: PR CI gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Mirror hygiene
+        run: |
+          set -euo pipefail
+          test -f index.html
+          test -f MIRROR_SOURCE.txt
+          test -f .nojekyll
+          # Fail if authoring source leaked back in
+          if [[ -d src || -f package.json || -d apps ]]; then
+            echo "Authoring source must not exist in the public mirror" >&2
+            exit 1
+          fi
+          if [[ -d career-ops || -d .cursor/skills ]]; then
+            echo "Confidential paths must not exist in the public mirror" >&2
+            exit 1
+          fi
+          echo "Mirror hygiene OK"
