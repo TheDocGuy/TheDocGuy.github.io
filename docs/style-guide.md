@@ -138,7 +138,7 @@ Replies to email and LinkedIn DMs use the `comms` skill in that same private rep
 
 ### Release notes
 
-Do not invent items. Classify what you were given. Omit empty sections. If classification is uncertain, put the item in the most likely section and report it in the return note — not as a placeholder in the file.
+Do not invent items. Classify what you were given. Omit empty sections. If classification is uncertain, put the item in the most likely section and report it in the return note — not as a placeholder in the file. Identify fixed issues with Jira keys (`KAN-123`), not GitHub issue numbers.
 
 ```markdown
 ---
@@ -158,7 +158,7 @@ doc_type: 'release-notes'
 
 ## Bug Fixes
 
-- **[Bug/issue ID or short name]**: [One-line description.]
+- **KAN-123**: [One-line description.]
 
 ## Known Issues
 

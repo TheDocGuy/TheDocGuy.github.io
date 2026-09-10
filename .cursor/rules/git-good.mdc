@@ -1,5 +1,5 @@
 ---
-description: Routes every Git and pull request mutation through the canonical git-good workflow.
+description: Routes every Git and pull request mutation through the canonical git-good workflow with Jira-key handoffs.
 alwaysApply: true
 policyVersion: 1
 ---
@@ -11,6 +11,8 @@ Policy version: 1
 Only `git-good` may perform mutating Git or pull request operations. Parent agents and all other agents are read-only and may use only `git status`, `git log`, `git diff`, and `git show`.
 
 Route every mutation through `.cursor/agents/git-good.md`, which must follow the canonical private skill at `/agent/repos/docfoundry-skills/.cursor/skills/git-good/SKILL.md`.
+
+Require a Jira `KAN-*` key on feature work. Prefer branch names `cursor/KAN-<n>-<descriptive-name>-<run-id>`. After pull request milestones, hand status updates to `work-manager`. Do not let `git-good` mutate Jira or Confluence.
 
 - Create feature work from `dev` and merge it into `dev`.
 - Test features before integration, then test the integrated candidate on `dev`.

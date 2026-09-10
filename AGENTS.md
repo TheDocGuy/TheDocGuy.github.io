@@ -10,7 +10,9 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 # Agent routing — DocFoundry
 
-Parent orchestrates. Quill writes. git-good ships. Quill stays at `.cursor/agents/quill.md`. `docs/style-guide.md` stays here and is the standard.
+Parent orchestrates. Quill writes. work-manager tracks. git-good ships. Quill stays at `.cursor/agents/quill.md`. `docs/style-guide.md` stays here and is the standard.
+
+Canonical work lives in Jira project `KAN`. Confluence space `MFS` holds the Way of Working. Do not open new product work as GitHub Issues.
 
 The Next.js block above is managed by `next dev`. Do not edit it. Keep this routing section after `<!-- END:nextjs-agent-rules -->`.
 
@@ -18,9 +20,11 @@ The Next.js block above is managed by `next dev`. Do not edit it. Keep this rout
 
 Policy version: 1.
 
-The parent and every agent except `git-good` may run only read-only Git operations: status, log, diff, and show. Hand all branch creation, staging, commits, pushes, and pull request creation, updates, or promotion to `git-good` at `.cursor/agents/git-good.md`. `git-good` reads the canonical skill from the private repository.
+The parent and every agent except `git-good` may run only read-only Git operations: status, log, diff, and show. Hand all branch creation, staging, commits, pushes, and pull request creation, updates, or promotion to `git-good` at `.cursor/agents/git-good.md`. `git-good` reads the canonical skill from the private repository and requires a Jira `KAN-*` key.
 
-Use the `dev` flow: feature branches target `dev`; test the integrated changes on `dev`; promote `dev` to `main`. Use a hotfix path only when the user authorizes it. Do not merge unless the user explicitly instructs you to merge.
+Use the `dev` flow: feature branches target `dev` as `cursor/KAN-<n>-<descriptive-name>-<run-id>`; test the integrated changes on `dev`; promote `dev` to `main`. Use a hotfix path only when the user authorizes it. Do not merge unless the user explicitly instructs you to merge.
+
+After pull request milestones, hand status updates to `work-manager`. Do not let `git-good` mutate Jira or Confluence.
 
 Bootstrap exception: for this installation only, the parent may perform the minimum Git and pull request mutations needed to create the installation commit, push it, and open the bootstrap pull request because `git-good` did not exist. After that, no exception applies.
 
@@ -51,6 +55,8 @@ When the private repo is in the workspace, read skills from `TheDocGuy/docfoundr
 - `.cursor/skills/comms/SKILL.md` — inbound email and LinkedIn DM replies. Loop: Quill drafts → Ryan reviews and approves → then send. Do not send a draft that has not been approved. "Reply to this" is not approval.
 - `.cursor/skills/linkedin-post/SKILL.md` — standalone LinkedIn posts, comments, hooks
 - `.cursor/skills/slide-deck/SKILL.md` — HTML slide decks
+- `.cursor/skills/git-good/SKILL.md` — canonical Git and pull request policy
+- `.cursor/agents/work-manager.md` — sole Jira and Confluence mutator
 
 Point at those files. Do not paste skill bodies, playbook steps, send procedures, or post templates into this repo.
 

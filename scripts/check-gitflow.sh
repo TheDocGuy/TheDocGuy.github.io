@@ -18,10 +18,17 @@ for file in "${required[@]}"; do
   fi
 done
 
-grep -Fq "Parent orchestrates. Quill writes. git-good ships." AGENTS.md
+grep -Fq "Parent orchestrates. Quill writes. work-manager tracks. git-good ships." AGENTS.md
+grep -Fq "KAN-" AGENTS.md
+grep -Fq "work-manager" AGENTS.md
 grep -Eq '^policy-version: 1$' .cursor/agents/git-good.md
+grep -Fq "KAN-" .cursor/agents/git-good.md
+grep -Fq "work-manager" .cursor/agents/git-good.md
 grep -Eq '^policyVersion: 1$' .cursor/rules/git-good.mdc
 grep -Fq "alwaysApply: true" .cursor/rules/git-good.mdc
+grep -Fq "KAN-" .cursor/rules/git-good.mdc
+grep -Fq "KAN-" .github/PULL_REQUEST_TEMPLATE.md
+grep -Fq "work-manager" .github/PULL_REQUEST_TEMPLATE.md
 
 if [[ "${GITHUB_EVENT_NAME:-}" == "pull_request" ]]; then
   base="${GITHUB_BASE_REF:-}"
