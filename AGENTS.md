@@ -10,7 +10,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 # Agent routing — DocFoundry
 
-Parent agent orchestrates. **Quill writes.** Quill stays at `.cursor/agents/quill.md`. `docs/style-guide.md` stays here and is the standard.
+Parent agent orchestrates. **Quill writes.** Quill stays at `.cursor/agents/quill.md`. The Confluence **DocFoundry Style Guide** is the DocFoundry style source of truth. `docs/style-guide.md` stays here as the public mirror.
 
 The Next.js block above is managed by `next dev`. Do not edit it. Keep this routing section after `<!-- END:nextjs-agent-rules -->`.
 

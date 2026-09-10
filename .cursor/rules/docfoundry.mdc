@@ -23,4 +23,4 @@ This repository is the public site. Do not commit career dashboards, job-search 
 
 ## Writing
 
-All user-facing prose goes to the `quill` subagent. Standard: `docs/style-guide.md`. Do not draft that prose in the parent agent.
+All user-facing prose goes to the `quill` subagent. Standard: Confluence **DocFoundry Style Guide**. Public mirror: `docs/style-guide.md`. Do not draft that prose in the parent agent.
