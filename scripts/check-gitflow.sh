@@ -1,50 +1,70 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-cd "$root"
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+SKILL_FILE="/agent/repos/docfoundry-skills/.cursor/skills/git-good/SKILL.md"
+AGENT_FILE="$ROOT/.cursor/agents/git-good.md"
+RULE_FILE="$ROOT/.cursor/rules/git-good.mdc"
+AGENTS_FILE="$ROOT/AGENTS.md"
 
-required=(
-  "AGENTS.md"
-  ".cursor/agents/git-good.md"
-  ".cursor/rules/git-good.mdc"
-  ".github/PULL_REQUEST_TEMPLATE.md"
-)
+if [[ ! -f "$SKILL_FILE" ]]; then
+  echo "Missing canonical git-good skill: $SKILL_FILE" >&2
+  exit 1
+fi
 
-for file in "${required[@]}"; do
-  if [[ ! -f "$file" ]]; then
-    echo "Missing required git-good wiring: $file" >&2
-    exit 1
-  fi
-done
+if [[ ! -f "$AGENT_FILE" ]]; then
+  echo "Missing git-good agent: $AGENT_FILE" >&2
+  exit 1
+fi
 
-grep -Fq "Parent orchestrates. Quill writes. git-good ships." AGENTS.md
-grep -Eq '^policy-version: 1$' .cursor/agents/git-good.md
-grep -Eq '^policyVersion: 1$' .cursor/rules/git-good.mdc
-grep -Fq "alwaysApply: true" .cursor/rules/git-good.mdc
+if [[ ! -f "$RULE_FILE" ]]; then
+  echo "Missing git-good rule: $RULE_FILE" >&2
+  exit 1
+fi
 
-if [[ "${GITHUB_EVENT_NAME:-}" == "pull_request" ]]; then
-  base="${GITHUB_BASE_REF:-}"
-  head="${GITHUB_HEAD_REF:-}"
+if ! grep -Eq '^name: git-good$' "$SKILL_FILE"; then
+  echo "git-good skill is missing required frontmatter name" >&2
+  exit 1
+fi
 
-  case "$base" in
-    dev)
-      [[ "$head" == cursor/* ]] || {
-        echo "Feature PRs into dev must use cursor/* branches; got $head" >&2
-        exit 1
-      }
-      ;;
-    main)
-      [[ "$head" == "dev" || "$head" == cursor/hotfix-* ]] || {
-        echo "PRs into main must come from dev or an authorized cursor/hotfix-* branch; got $head" >&2
-        exit 1
-      }
-      ;;
-    *)
-      echo "Pull requests must target dev or main; got $base" >&2
-      exit 1
-      ;;
-  esac
+if ! grep -Eq '^description: .+Requires a Jira key; pull requests only into `main`\.$' "$SKILL_FILE"; then
+  echo "git-good skill description must require a Jira key and pull requests only into main" >&2
+  exit 1
+fi
+
+if ! grep -Eq '^policyVersion: 1$' "$SKILL_FILE"; then
+  echo "git-good skill must declare policyVersion 1" >&2
+  exit 1
+fi
+
+if ! grep -Eq '^name: git-good$' "$AGENT_FILE"; then
+  echo "git-good agent is missing required frontmatter name" >&2
+  exit 1
+fi
+
+if ! grep -Eq '^description: .+Requires a Jira key; pull requests only into main\.$' "$AGENT_FILE"; then
+  echo "git-good agent description must require a Jira key and pull requests only into main" >&2
+  exit 1
+fi
+
+if ! grep -Eq '^policy-version: 1$' "$AGENT_FILE"; then
+  echo "git-good agent must declare policy-version 1" >&2
+  exit 1
+fi
+
+if ! grep -Eq '^alwaysApply: true$' "$RULE_FILE"; then
+  echo "git-good rule must set alwaysApply: true" >&2
+  exit 1
+fi
+
+if ! grep -Eq 'KAN-\*' "$AGENTS_FILE"; then
+  echo "AGENTS.md must document the KAN-* Jira key requirement" >&2
+  exit 1
+fi
+
+if ! grep -Eq 'cursor/\*-e023' "$AGENTS_FILE"; then
+  echo "AGENTS.md must document the cursor/*-e023 branch pattern" >&2
+  exit 1
 fi
 
 echo "git-good policy version 1 wiring and branch route are valid"

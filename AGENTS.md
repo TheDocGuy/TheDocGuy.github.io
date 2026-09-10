@@ -18,9 +18,9 @@ The Next.js block above is managed by `next dev`. Do not edit it. Keep this rout
 
 Policy version: 1.
 
-The parent and every agent except `git-good` may run only read-only Git operations: status, log, diff, and show. Hand all branch creation, staging, commits, pushes, and pull request creation, updates, or promotion to `git-good` at `.cursor/agents/git-good.md`. `git-good` reads the canonical skill from the private repository.
+The parent and every agent except `git-good` may run only read-only Git operations: status, log, diff, and show. Hand all branch creation, staging, commits, pushes, and pull request creation, updates, or promotion to `git-good` at `.cursor/agents/git-good.md`. `git-good` reads the canonical skill from the private repository and requires a Jira `KAN-*` key.
 
-Use the `dev` flow: feature branches target `dev`; test the integrated changes on `dev`; promote `dev` to `main`. Use a hotfix path only when the user authorizes it. Do not merge unless the user explicitly instructs you to merge.
+Use the `dev` flow: feature branches start from `dev` as `cursor/KAN-<n>-…`, integrate into `dev` by merge/push after checks (no pull request into `dev`), then promote `dev` to `main` with a pull request. Pull requests are required only into `main`. Use a hotfix path only when the user authorizes it. Do not merge a GitHub pull request unless the user explicitly instructs you to merge.
 
 Bootstrap exception: for this installation only, the parent may perform the minimum Git and pull request mutations needed to create the installation commit, push it, and open the bootstrap pull request because `git-good` did not exist. After that, no exception applies.
 

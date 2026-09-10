@@ -1,22 +1,17 @@
 ---
-description: Routes every Git and pull request mutation through the canonical git-good workflow.
+description: Routes Git and pull request mutations through git-good. Pull requests are required only into main.
 alwaysApply: true
 policyVersion: 1
 ---
 
-# Git and pull request policy
+# Git and pull request routing
 
-Policy version: 1
+Only `git-good` may mutate Git or pull requests. Other agents may use only `git status`, `git log`, `git diff`, and `git show`.
 
-Only `git-good` may perform mutating Git or pull request operations. Parent agents and all other agents are read-only and may use only `git status`, `git log`, `git diff`, and `git show`.
+Route mutations through `.cursor/agents/git-good.md` and the canonical skill at `/agent/repos/docfoundry-skills/.cursor/skills/git-good/SKILL.md`.
 
-Route every mutation through `.cursor/agents/git-good.md`, which must follow the canonical private skill at `/agent/repos/docfoundry-skills/.cursor/skills/git-good/SKILL.md`.
+Require a Jira `KAN-*` key. Prefer `cursor/KAN-<n>-<descriptive-name>-<run-id>` branches. Feature work branches from `dev`, then merges into `dev` and pushes `dev` after checks — no pull request into `dev`. Pull requests are required only into `main`. Sync merged hotfixes back to `dev` by merge/push without a sync pull request. Hand status updates to `work-manager`. Do not let `git-good` mutate Jira or Confluence.
 
-- Create feature work from `dev` and merge it into `dev`.
-- Test features before integration, then test the integrated candidate on `dev`.
-- Promote releases from `dev` to `main`.
-- Deploy production only from `main`.
-- Use a hotfix only with explicit authorization, target `main`, and sync the merged hotfix back to `dev`.
-- Never merge without an explicit user instruction to merge.
+Never merge a GitHub pull request without an explicit user instruction.
 
-One-time bootstrap exception: the parent agent may create the installation commit that introduces `git-good`. After that commit, only `git-good` may mutate Git or pull requests.
+Bootstrap exception: the parent may create the installation commit for `git-good` only when `git-good` does not yet exist.

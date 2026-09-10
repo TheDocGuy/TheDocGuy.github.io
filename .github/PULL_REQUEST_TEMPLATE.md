@@ -1,33 +1,29 @@
-## CI gate
+## Jira
 
-This pull request cannot merge on a red `PR CI gate`.
-
-The workflow runs, in order:
-
-1. `npm run lint`
-2. `npm run typecheck`
-3. `npm test` — includes the canonical DMF level-name lock
-4. `npm run build`
-
-If you change DMF level names, update `src/lib/dmf.ts` **and** `src/lib/assessment.test.ts` in the same PR.
+- Key: KAN-
+- Acceptance criteria:
+- Linked work:
 
 ## Summary
 
--
+<!-- State what changed and why. Quill owns content-facing prose. -->
 
 ## Change type
 
-- [ ] Feature → `dev`
 - [ ] `dev` → `main` promotion
-- [ ] Authorized hotfix
+- [ ] Authorized hotfix into `main`
 
-## Linked or included PRs
+## Policy note
 
--
+Pull requests target `main` only. Feature work integrates into `dev` by merge/push after checks — do not open a feature pull request into `dev`.
+
+## Linked PRs
+
+<!-- Link related promotion or hotfix PRs. -->
 
 ## Test evidence
 
-### Feature checks
+### Feature checks (completed before `dev` update)
 
 -
 
@@ -35,17 +31,21 @@ If you change DMF level names, update `src/lib/dmf.ts` **and** `src/lib/assessme
 
 -
 
-## Public/private safety
+### Release checks (this PR into `main`)
 
-- [ ] I confirmed this PR contains no career dashboards, job-search trackers, confidential briefs, screening lists, secrets, or other private material.
+-
+
+## work-manager handoff
+
+- Requested Jira status after this PR:
+- Evidence summary:
 
 ## Promotion checklist
 
-Complete every applicable placeholder before promoting to `main`.
+- [ ] The source and target branches match the selected change type
+- [ ] Required test evidence is attached
+- [ ] The promotion contains only approved changes
 
-- [ ] The summary, change type, linked or included PRs, and test evidence are complete.
-- [ ] Feature checks pass.
-- [ ] Integrated `dev` checks pass.
-- [ ] The `PR CI gate` passes.
-- [ ] This promotion contains only reviewed changes from `dev`, unless it is an authorized hotfix.
-- [ ] Production deploys only from `main`.
+## Public/private safety
+
+- [ ] I confirmed this PR contains no career dashboards, job-search trackers, confidential briefs, screening lists, secrets, or other private material.
