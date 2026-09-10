@@ -24,15 +24,15 @@ Dev server: [http://127.0.0.1:43217](http://127.0.0.1:43217)
 | `npm run typecheck` | `tsc --noEmit` |
 | `npm test` | DMF, assessment, and agent-wiring unit tests |
 | `npm run build` | Production build |
-| `npm run ci` | Lint, typecheck, test, build — the PR gate |
+| `npm run ci` | Lint, typecheck, test, build: the PR gate |
 
 Pull requests run `.github/workflows/ci.yml`. A red **PR CI gate** means the change does not merge.
 
 ## Writing (Quill)
 
-All user-facing prose goes to the Cursor subagent at `.cursor/agents/quill.md`. The standard is `docs/style-guide.md`. Root `AGENTS.md` is the handoff.
+All user-facing prose goes to the Cursor subagent at `.cursor/agents/quill.md`. The DocFoundry style source of truth is the Confluence [**DocFoundry Style Guide**](https://docfoundry.atlassian.net/wiki/spaces/MFS/pages/819202/DocFoundry+Style+Guide). `docs/style-guide.md` is the public mirror and must stay in sync. It is not canonical. Root `AGENTS.md` is the handoff.
 
-Cursor skills do not live in this repo. They live only in the private repo `TheDocGuy/docfoundry-skills`: comms (email and LinkedIn DM replies — send only after Ryan reviews and approves), linkedin-post, and slide-deck.
+Cursor skills do not live in this repo. They live only in the private repo `TheDocGuy/docfoundry-skills`: comms (email and LinkedIn DM replies, send only after Ryan reviews and approves), linkedin-post, and slide-deck.
 
 ## GitHub Pages
 
@@ -40,11 +40,11 @@ After this lands on `main`, set **Settings → Pages → Source** to **GitHub Ac
 
 ## Also in this repo
 
-- `.cursor/agents/quill.md` — writing subagent
-- `docs/style-guide.md` — canonical voice and publication rules
-- `ip/` — DMF and Component Style System stubs (copyright)
-- `script-library/` — operational scripts
-- `career/` — public notes only; job-search ops stay private
+- `.cursor/agents/quill.md`: writing subagent
+- `docs/style-guide.md`: public mirror of the Confluence DocFoundry Style Guide. Keep it in sync. It is not canonical.
+- `ip/`: DMF and Component Style System stubs (copyright)
+- `script-library/`: operational scripts
+- `career/`: public notes only; job-search ops stay private
 
 ## Stack
 
